@@ -1,55 +1,43 @@
 [package]
-name = "rust-htslib"
-version = "0.40.2"
+name = "hts-sys"
+version = "2.0.3"
 authors = ["Christopher Schröder <christopher.schroeder@tu-dortmund.de>", "Johannes Köster <johannes.koester@tu-dortmund.de>"]
-description = "This library provides HTSlib bindings and a high level Rust API for reading and writing BAM files."
+build = "build.rs"
+links = "hts"
+description = "This library provides HTSlib bindings."
 readme = "README.md"
 keywords = ["htslib", "bam", "bioinformatics", "pileup", "sequencing"]
 license = "MIT"
-repository = "https://github.com/rust-bio/rust-htslib.git"
+repository = "https://github.com/samtools/htslib.git"
 documentation = "https://docs.rs/rust-htslib"
 edition = "2018"
-include = ["src/**/*", "LICENSE.md", "README.md", "CHANGELOG.md"]
-
-[workspace]
-members = ["hts-sys"]
 
 [package.metadata.release]
 pre-release-commit-message = "release version {{version}}"
 tag-message = "Version {{version}} of Rust-HTSlib."
 
-
 [dependencies]
-libc = "0.2"
-newtype_derive = "0.1"
-custom_derive = "0.1"
-url = "2.1"
-lazy_static = "1.4"
-regex = "1.3"
-linear-map = "1.2"
-serde = { version = "^1", optional = true, features=["derive"] }
-serde_bytes = { version = "0.11", optional = true }
-bio-types = ">=0.9"
-thiserror = "1"
-hts-sys = { version = "2.0.3", path = "hts-sys", default-features = false }
-derive-new = "0.5"
-ieee754 = "0.2"
-byteorder = "1.3"
+libz-sys = { version = "1.1.0", default-features = false, features = ["zlib-ng", "static"] }
+bzip2-sys = { version = "0.1.8", optional = true }
+lzma-sys = { version = "0.1.16", optional = true, features = ["static"] }
+curl-sys = { version = "0.4.44", optional = true, features = ["static-curl", "static-ssl", "protocol-ftp"] }
+libdeflate-sys = { version = "0.7.3", optional = true }
+
+[target.'cfg(all(unix, not(target_os = "macos")))'.dependencies]
+openssl-sys = { version = "0.9.56", optional = true }
 
 [features]
 default = ["bzip2", "lzma", "curl"]
-bzip2 = ["hts-sys/bzip2"]
-lzma = ["hts-sys/lzma"]
-bindgen = ["hts-sys/bindgen"]
-curl = ["hts-sys/curl"]
-libdeflate = ["hts-sys/libdeflate"]
-s3 = ["hts-sys/s3"]
-gcs = ["hts-sys/gcs"]
-static = ["hts-sys/static"]
-serde_feature = ["serde", "serde_bytes", "bio-types/serde"]
+bzip2 = ["bzip2-sys"]
+lzma = ["lzma-sys"]
+curl = ["curl-sys", "openssl-sys"]
+libdeflate = ["libdeflate-sys"]
+gcs = ["curl"] # Google Cloud Storage support
+s3 = ["curl"] # Amazon S3 support
+static = [] # Don't dynamically link to other libraries
 
-[dev-dependencies]
-tempfile = "3.1.0"
-bincode = "1.2"
-serde_json = "1.0"
-pretty_assertions = "0.6"
+[build-dependencies]
+fs-utils = "1.1"
+bindgen = { version = "0.53.2", default-features = false, features = ["runtime"], optional = true }
+cc = { version = "1.0", features = ["parallel"] }
+glob = "0.3.0"
