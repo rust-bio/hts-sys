@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/rust-bio/hts-sys/compare/v2.0.3...v2.1.0) (2023-06-13)
+
+
+### Features
+
+* bindings for basemod API ([6e6c585](https://github.com/rust-bio/hts-sys/commit/6e6c5852c9281195429290f771dd44183679921b))
+
 ## [2.0.3](https://github.com/rust-bio/rust-htslib/compare/hts-sys-v2.0.2...hts-sys-v2.0.3) (2022-10-13)
 
 
