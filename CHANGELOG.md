@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.0](https://github.com/rust-bio/hts-sys/compare/v2.0.3...v2.1.0) (2023-06-13)
+
+
+### Features
+
+* bindings for basemod API ([6e6c585](https://github.com/rust-bio/hts-sys/commit/6e6c5852c9281195429290f771dd44183679921b))
+* Revised calculation of leading- and trailing-softclips ([#375](https://github.com/rust-bio/hts-sys/issues/375)) ([b61dd2c](https://github.com/rust-bio/hts-sys/commit/b61dd2cfb2b74c0180f2d76bbd4ed4eb14fa09b3))
+
+
+### Miscellaneous Chores
+
+* release 0.41.0 ([115d5e3](https://github.com/rust-bio/hts-sys/commit/115d5e3a2c7ebc0dd6e5b67378843309dcf72cf0))
+* release 2.1.0 ([5feaa0b](https://github.com/rust-bio/hts-sys/commit/5feaa0b998496aa17f5ac13b22c232fa61d68dbb))
+
 ## [2.0.3](https://github.com/rust-bio/rust-htslib/compare/hts-sys-v2.0.2...hts-sys-v2.0.3) (2022-10-13)
 
 
