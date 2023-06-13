@@ -6,7 +6,6 @@
 ### Features
 
 * bindings for basemod API ([6e6c585](https://github.com/rust-bio/hts-sys/commit/6e6c5852c9281195429290f771dd44183679921b))
-* Revised calculation of leading- and trailing-softclips ([#375](https://github.com/rust-bio/hts-sys/issues/375)) ([b61dd2c](https://github.com/rust-bio/hts-sys/commit/b61dd2cfb2b74c0180f2d76bbd4ed4eb14fa09b3))
 
 ## [2.0.3](https://github.com/rust-bio/rust-htslib/compare/hts-sys-v2.0.2...hts-sys-v2.0.3) (2022-10-13)
 
