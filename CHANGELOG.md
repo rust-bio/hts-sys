@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/rust-bio/hts-sys/compare/v2.1.0...v2.1.1) (2023-06-14)
+
+
+### Bug Fixes
+
+* remove the `hts-sys/` subpath from `--manifest-path` specification ([#5](https://github.com/rust-bio/hts-sys/issues/5)) ([53c2e23](https://github.com/rust-bio/hts-sys/commit/53c2e23c72da9dfbb68ebaa1717f4a1636709cb8))
+
 ## [2.1.0](https://github.com/rust-bio/hts-sys/compare/v2.0.3...v2.1.0) (2023-06-13)
 
 
