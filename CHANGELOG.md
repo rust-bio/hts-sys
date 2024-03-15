@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/rust-bio/hts-sys/compare/v2.1.1...v2.1.2) (2024-03-15)
+
+
+### Miscellaneous Chores
+
+* release 2.1.2 ([32f185f](https://github.com/rust-bio/hts-sys/commit/32f185f5f963c8cd1574dfbb1858775be4dfc6eb))
+
 ## [2.1.1](https://github.com/rust-bio/hts-sys/compare/v2.1.0...v2.1.1) (2023-06-14)
 
 
