@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3](https://github.com/rust-bio/hts-sys/compare/v2.1.2...v2.1.3) (2024-05-06)
+
+
+### Bug Fixes
+
+* build on aarch64-apple-darwin ([#10](https://github.com/rust-bio/hts-sys/issues/10)) ([534c463](https://github.com/rust-bio/hts-sys/commit/534c4638a375d7f45d0de57564f6f42443d1ef97))
+
 ## [2.1.2](https://github.com/rust-bio/hts-sys/compare/v2.1.1...v2.1.2) (2024-03-15)
 
 
