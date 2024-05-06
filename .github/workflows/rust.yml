@@ -126,19 +126,19 @@ jobs:
             toolchain_target: x86_64-apple-darwin
             toolchain: stable
             aux_args: --target x86_64-apple-darwin
-            default: false
+            default: true
           - target: intel-ventura
             os: macOS-13.0
             toolchain_target: x86_64-apple-darwin
             toolchain: stable
             aux_args: --target x86_64-apple-darwin
-            default: false
+            default: true
           - target: silicon-sonoma
             os: macOS-14.0
             toolchain_target: aarch64-apple-darwin
             toolchain: stable
             aux_args: ""
-            default: true
+            default: false
 
     steps:
       - name: Checkout repository
