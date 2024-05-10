@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.4](https://github.com/rust-bio/hts-sys/compare/v2.1.3...v2.1.4) (2024-05-10)
+
+
+### Bug Fixes
+
+* add missing sam_mods to bindings ([#13](https://github.com/rust-bio/hts-sys/issues/13)) ([a4fc270](https://github.com/rust-bio/hts-sys/commit/a4fc270cc525a596bc54b1388e26db2f8cb9fe4c))
+
 ## [2.1.3](https://github.com/rust-bio/hts-sys/compare/v2.1.2...v2.1.3) (2024-05-06)
 
 
