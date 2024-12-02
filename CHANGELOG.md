@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/rust-bio/hts-sys/compare/v2.1.4...v2.2.0) (2024-12-02)
+
+
+### Features
+
+* add hfile.h to wrapper.h so hopen appears in bindings ([#17](https://github.com/rust-bio/hts-sys/issues/17)) ([e9eaef7](https://github.com/rust-bio/hts-sys/commit/e9eaef7cba36d7a18537ed64d4656f33a7fea018))
+
 ## [2.1.4](https://github.com/rust-bio/hts-sys/compare/v2.1.3...v2.1.4) (2024-05-10)
 
 
