@@ -16,7 +16,7 @@ extern crate curl_sys;
 extern crate libdeflate_sys;
 extern crate libz_sys;
 #[cfg(feature = "lzma")]
-extern crate lzma_sys;
+extern crate liblzma_sys;
 
 // include on-the-fly generated bindings
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
