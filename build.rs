@@ -268,6 +268,7 @@ fn main() {
     {
         bindgen::Builder::default()
             .header("wrapper.h")
+            .layout_tests(false)
             .generate_comments(false)
             .blocklist_function("strtold")
             .blocklist_type("max_align_t")
