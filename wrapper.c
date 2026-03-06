@@ -20,3 +20,7 @@ void wrap_kbs_destroy(kbitset_t *bs)
 {
   kbs_destroy(bs);
 }
+
+int64_t wrap_bgzf_tell(BGZF *fp) {
+    return bgzf_tell(fp);
+}
