@@ -226,7 +226,7 @@ fn main() {
 
     // write out version.h
     {
-        let version = std::process::Command::new(out.join("htslib").join("version.sh"))
+        let version = std::process::Command::new("sh").args(["-c", "htslib/version.sh"])
             .output()
             .expect("failed to execute process");
         let version_str = std::str::from_utf8(&version.stdout).unwrap().trim();
