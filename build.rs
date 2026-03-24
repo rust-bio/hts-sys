@@ -288,6 +288,11 @@ fn main() {
         fs::copy("osx_prebuilt_bindings.rs", out.join("bindings.rs"))
             .expect("couldn't copy prebuilt bindings");
         println!("cargo:rerun-if-changed=osx_prebuilt_bindings.rs");
+    }
+    else if target_os == "windows" {
+        fs::copy("windows_prebuilt_bindings.rs", out.join("bindings.rs"))
+            .expect("couldn't copy prebuilt bindings");
+        println!("cargo:rerun-if-changed=windows_prebuilt_bindings.rs");
     } else {
         fs::copy("linux_prebuilt_bindings.rs", out.join("bindings.rs"))
             .expect("couldn't copy prebuilt bindings");
