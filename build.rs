@@ -94,7 +94,9 @@ fn main() {
     }
 
     cfg.include(out.join("htslib"));
-
+    if target_os == "windows" {
+        cfg.include(out.join("win32"));
+    }
     let want_static = cfg!(feature = "static") || env::var("HTS_STATIC").is_ok();
 
     if want_static {
