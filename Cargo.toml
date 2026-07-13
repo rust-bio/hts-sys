@@ -19,7 +19,7 @@ tag-message = "Version {{version}} of Rust-HTSlib."
 [dependencies]
 libz-sys = { version = "1.1.0", default-features = false, features = ["zlib-ng", "static"] }
 bzip2-sys = { version = "0.1.8", optional = true }
-lzma-sys = { version = "0.1.16", optional = true, features = ["static"] }
+liblzma-sys = { version = "0.1.20", optional = true }
 curl-sys = { version = "0.4.78", optional = true, features = ["static-curl", "static-ssl", "protocol-ftp"] }
 libdeflate-sys = { version = "1.21.0", optional = true }
 
@@ -29,7 +29,7 @@ openssl-sys = { version = "0.9.56", optional = true }
 [features]
 default = ["bzip2", "lzma", "curl"]
 bzip2 = ["bzip2-sys"]
-lzma = ["lzma-sys"]
+lzma = ["liblzma-sys"]
 curl = ["curl-sys", "openssl-sys"]
 libdeflate = ["libdeflate-sys"]
 gcs = ["curl"] # Google Cloud Storage support
