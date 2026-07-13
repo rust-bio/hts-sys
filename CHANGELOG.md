@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/rust-bio/hts-sys/compare/v2.2.0...v2.2.1) (2026-07-13)
+
+
+### Bug Fixes
+
+* Disable layout tests ([#26](https://github.com/rust-bio/hts-sys/issues/26)) ([3043d86](https://github.com/rust-bio/hts-sys/commit/3043d866d6706cbf5deef0b230dbb8eb44930c72))
+
 ## [2.2.0](https://github.com/rust-bio/hts-sys/compare/v2.1.4...v2.2.0) (2024-12-02)
 
 
