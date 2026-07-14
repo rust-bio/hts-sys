@@ -10,7 +10,8 @@ keywords = ["htslib", "bam", "bioinformatics", "pileup", "sequencing"]
 license = "MIT"
 repository = "https://github.com/samtools/htslib.git"
 documentation = "https://docs.rs/rust-htslib"
-edition = "2018"
+edition = "2021"
+rust-version = "1.56"
 
 [package.metadata.release]
 pre-release-commit-message = "release version {{version}}"
@@ -28,16 +29,16 @@ openssl-sys = { version = "0.9.56", optional = true }
 
 [features]
 default = ["bzip2", "lzma", "curl"]
-bzip2 = ["bzip2-sys"]
-lzma = ["lzma-sys"]
-curl = ["curl-sys", "openssl-sys"]
-libdeflate = ["libdeflate-sys"]
+bzip2 = ["bzip2-sys"] # Bzip2 support
+lzma = ["lzma-sys"] # LZMA support
+curl = ["curl-sys", "openssl-sys"] # HTTP/FTP support (requires OpenSSL on non-macOS Unix)
+libdeflate = ["libdeflate-sys"] # libdeflate support (faster compression/decompression)
 gcs = ["curl"] # Google Cloud Storage support
 s3 = ["curl"] # Amazon S3 support
-static = [] # Don't dynamically link to other libraries
+static = [] # Deprecated, always on
 
 [build-dependencies]
 fs-utils = "1.1"
 bindgen = { version = "0.72.1", default-features = false, features = ["runtime"], optional = true }
-cc = { version = "1.0", features = ["parallel"] }
-glob = "0.3.0"
+cc = { version = "1.2.67", features = ["parallel"] }
+glob = "0.3.3"

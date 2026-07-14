@@ -138,15 +138,14 @@ where
     }
 }
 pub const __WORDSIZE: u32 = 64;
-pub const __DARWIN_ONLY_64_BIT_INO_T: u32 = 0;
+pub const __has_safe_buffers: u32 = 1;
+pub const __DARWIN_ONLY_64_BIT_INO_T: u32 = 1;
 pub const __DARWIN_ONLY_UNIX_CONFORMANCE: u32 = 1;
-pub const __DARWIN_ONLY_VERS_1050: u32 = 0;
+pub const __DARWIN_ONLY_VERS_1050: u32 = 1;
 pub const __DARWIN_UNIX03: u32 = 1;
 pub const __DARWIN_64_BIT_INO_T: u32 = 1;
 pub const __DARWIN_VERS_1050: u32 = 1;
 pub const __DARWIN_NON_CANCELABLE: u32 = 0;
-pub const __DARWIN_SUF_64_BIT_INO_T: &[u8; 9] = b"$INODE64\0";
-pub const __DARWIN_SUF_1050: &[u8; 6] = b"$1050\0";
 pub const __DARWIN_SUF_EXTSN: &[u8; 14] = b"$DARWIN_EXTSN\0";
 pub const __DARWIN_C_ANSI: u32 = 4096;
 pub const __DARWIN_C_FULL: u32 = 900000;
@@ -154,9 +153,13 @@ pub const __DARWIN_C_LEVEL: u32 = 900000;
 pub const __STDC_WANT_LIB_EXT1__: u32 = 1;
 pub const __DARWIN_NO_LONG_LONG: u32 = 0;
 pub const _DARWIN_FEATURE_64_BIT_INODE: u32 = 1;
+pub const _DARWIN_FEATURE_ONLY_64_BIT_INODE: u32 = 1;
+pub const _DARWIN_FEATURE_ONLY_VERS_1050: u32 = 1;
 pub const _DARWIN_FEATURE_ONLY_UNIX_CONFORMANCE: u32 = 1;
 pub const _DARWIN_FEATURE_UNIX_CONFORMANCE: u32 = 3;
 pub const __has_ptrcheck: u32 = 0;
+pub const __has_bounds_safety_attributes: u32 = 0;
+pub const USE_CLANG_TYPES: u32 = 0;
 pub const __PTHREAD_SIZE__: u32 = 8176;
 pub const __PTHREAD_ATTR_SIZE__: u32 = 56;
 pub const __PTHREAD_MUTEXATTR_SIZE__: u32 = 8;
@@ -372,12 +375,19 @@ pub const SCNuMAX: &[u8; 3] = b"ju\0";
 pub const SCNxMAX: &[u8; 3] = b"jx\0";
 pub const __API_TO_BE_DEPRECATED: u32 = 100000;
 pub const __API_TO_BE_DEPRECATED_MACOS: u32 = 100000;
+pub const __API_TO_BE_DEPRECATED_MACOSAPPLICATIONEXTENSION: u32 = 100000;
 pub const __API_TO_BE_DEPRECATED_IOS: u32 = 100000;
+pub const __API_TO_BE_DEPRECATED_IOSAPPLICATIONEXTENSION: u32 = 100000;
 pub const __API_TO_BE_DEPRECATED_MACCATALYST: u32 = 100000;
+pub const __API_TO_BE_DEPRECATED_MACCATALYSTAPPLICATIONEXTENSION: u32 = 100000;
 pub const __API_TO_BE_DEPRECATED_WATCHOS: u32 = 100000;
+pub const __API_TO_BE_DEPRECATED_WATCHOSAPPLICATIONEXTENSION: u32 = 100000;
 pub const __API_TO_BE_DEPRECATED_TVOS: u32 = 100000;
+pub const __API_TO_BE_DEPRECATED_TVOSAPPLICATIONEXTENSION: u32 = 100000;
 pub const __API_TO_BE_DEPRECATED_DRIVERKIT: u32 = 100000;
-pub const __API_TO_BE_DEPRECATED_XROS: u32 = 100000;
+pub const __API_TO_BE_DEPRECATED_VISIONOS: u32 = 100000;
+pub const __API_TO_BE_DEPRECATED_VISIONOSAPPLICATIONEXTENSION: u32 = 100000;
+pub const __API_TO_BE_DEPRECATED_KERNELKIT: u32 = 100000;
 pub const __MAC_10_0: u32 = 1000;
 pub const __MAC_10_1: u32 = 1010;
 pub const __MAC_10_2: u32 = 1020;
@@ -424,12 +434,34 @@ pub const __MAC_12_2: u32 = 120200;
 pub const __MAC_12_3: u32 = 120300;
 pub const __MAC_12_4: u32 = 120400;
 pub const __MAC_12_5: u32 = 120500;
+pub const __MAC_12_6: u32 = 120600;
+pub const __MAC_12_7: u32 = 120700;
 pub const __MAC_13_0: u32 = 130000;
 pub const __MAC_13_1: u32 = 130100;
 pub const __MAC_13_2: u32 = 130200;
 pub const __MAC_13_3: u32 = 130300;
 pub const __MAC_13_4: u32 = 130400;
+pub const __MAC_13_5: u32 = 130500;
+pub const __MAC_13_6: u32 = 130600;
+pub const __MAC_13_7: u32 = 130700;
 pub const __MAC_14_0: u32 = 140000;
+pub const __MAC_14_1: u32 = 140100;
+pub const __MAC_14_2: u32 = 140200;
+pub const __MAC_14_3: u32 = 140300;
+pub const __MAC_14_4: u32 = 140400;
+pub const __MAC_14_5: u32 = 140500;
+pub const __MAC_14_6: u32 = 140600;
+pub const __MAC_14_7: u32 = 140700;
+pub const __MAC_15_0: u32 = 150000;
+pub const __MAC_15_1: u32 = 150100;
+pub const __MAC_15_2: u32 = 150200;
+pub const __MAC_15_3: u32 = 150300;
+pub const __MAC_15_4: u32 = 150400;
+pub const __MAC_15_5: u32 = 150500;
+pub const __MAC_15_6: u32 = 150600;
+pub const __MAC_16_0: u32 = 160000;
+pub const __MAC_26_0: u32 = 260000;
+pub const __MAC_26_1: u32 = 260100;
 pub const __IPHONE_2_0: u32 = 20000;
 pub const __IPHONE_2_1: u32 = 20100;
 pub const __IPHONE_2_2: u32 = 20200;
@@ -482,7 +514,6 @@ pub const __IPHONE_14_1: u32 = 140100;
 pub const __IPHONE_14_2: u32 = 140200;
 pub const __IPHONE_14_3: u32 = 140300;
 pub const __IPHONE_14_5: u32 = 140500;
-pub const __IPHONE_14_4: u32 = 140400;
 pub const __IPHONE_14_6: u32 = 140600;
 pub const __IPHONE_14_7: u32 = 140700;
 pub const __IPHONE_14_8: u32 = 140800;
@@ -493,13 +524,34 @@ pub const __IPHONE_15_3: u32 = 150300;
 pub const __IPHONE_15_4: u32 = 150400;
 pub const __IPHONE_15_5: u32 = 150500;
 pub const __IPHONE_15_6: u32 = 150600;
+pub const __IPHONE_15_7: u32 = 150700;
+pub const __IPHONE_15_8: u32 = 150800;
 pub const __IPHONE_16_0: u32 = 160000;
 pub const __IPHONE_16_1: u32 = 160100;
 pub const __IPHONE_16_2: u32 = 160200;
 pub const __IPHONE_16_3: u32 = 160300;
 pub const __IPHONE_16_4: u32 = 160400;
 pub const __IPHONE_16_5: u32 = 160500;
+pub const __IPHONE_16_6: u32 = 160600;
+pub const __IPHONE_16_7: u32 = 160700;
 pub const __IPHONE_17_0: u32 = 170000;
+pub const __IPHONE_17_1: u32 = 170100;
+pub const __IPHONE_17_2: u32 = 170200;
+pub const __IPHONE_17_3: u32 = 170300;
+pub const __IPHONE_17_4: u32 = 170400;
+pub const __IPHONE_17_5: u32 = 170500;
+pub const __IPHONE_17_6: u32 = 170600;
+pub const __IPHONE_17_7: u32 = 170700;
+pub const __IPHONE_18_0: u32 = 180000;
+pub const __IPHONE_18_1: u32 = 180100;
+pub const __IPHONE_18_2: u32 = 180200;
+pub const __IPHONE_18_3: u32 = 180300;
+pub const __IPHONE_18_4: u32 = 180400;
+pub const __IPHONE_18_5: u32 = 180500;
+pub const __IPHONE_18_6: u32 = 180600;
+pub const __IPHONE_19_0: u32 = 190000;
+pub const __IPHONE_26_0: u32 = 260000;
+pub const __IPHONE_26_1: u32 = 260100;
 pub const __WATCHOS_1_0: u32 = 10000;
 pub const __WATCHOS_2_0: u32 = 20000;
 pub const __WATCHOS_2_1: u32 = 20100;
@@ -533,13 +585,32 @@ pub const __WATCHOS_8_4: u32 = 80400;
 pub const __WATCHOS_8_5: u32 = 80500;
 pub const __WATCHOS_8_6: u32 = 80600;
 pub const __WATCHOS_8_7: u32 = 80700;
+pub const __WATCHOS_8_8: u32 = 80800;
 pub const __WATCHOS_9_0: u32 = 90000;
 pub const __WATCHOS_9_1: u32 = 90100;
 pub const __WATCHOS_9_2: u32 = 90200;
 pub const __WATCHOS_9_3: u32 = 90300;
 pub const __WATCHOS_9_4: u32 = 90400;
 pub const __WATCHOS_9_5: u32 = 90500;
+pub const __WATCHOS_9_6: u32 = 90600;
 pub const __WATCHOS_10_0: u32 = 100000;
+pub const __WATCHOS_10_1: u32 = 100100;
+pub const __WATCHOS_10_2: u32 = 100200;
+pub const __WATCHOS_10_3: u32 = 100300;
+pub const __WATCHOS_10_4: u32 = 100400;
+pub const __WATCHOS_10_5: u32 = 100500;
+pub const __WATCHOS_10_6: u32 = 100600;
+pub const __WATCHOS_10_7: u32 = 100700;
+pub const __WATCHOS_11_0: u32 = 110000;
+pub const __WATCHOS_11_1: u32 = 110100;
+pub const __WATCHOS_11_2: u32 = 110200;
+pub const __WATCHOS_11_3: u32 = 110300;
+pub const __WATCHOS_11_4: u32 = 110400;
+pub const __WATCHOS_11_5: u32 = 110500;
+pub const __WATCHOS_11_6: u32 = 110600;
+pub const __WATCHOS_12_0: u32 = 120000;
+pub const __WATCHOS_26_0: u32 = 260000;
+pub const __WATCHOS_26_1: u32 = 260100;
 pub const __TVOS_9_0: u32 = 90000;
 pub const __TVOS_9_1: u32 = 90100;
 pub const __TVOS_9_2: u32 = 90200;
@@ -581,7 +652,24 @@ pub const __TVOS_16_2: u32 = 160200;
 pub const __TVOS_16_3: u32 = 160300;
 pub const __TVOS_16_4: u32 = 160400;
 pub const __TVOS_16_5: u32 = 160500;
+pub const __TVOS_16_6: u32 = 160600;
 pub const __TVOS_17_0: u32 = 170000;
+pub const __TVOS_17_1: u32 = 170100;
+pub const __TVOS_17_2: u32 = 170200;
+pub const __TVOS_17_3: u32 = 170300;
+pub const __TVOS_17_4: u32 = 170400;
+pub const __TVOS_17_5: u32 = 170500;
+pub const __TVOS_17_6: u32 = 170600;
+pub const __TVOS_18_0: u32 = 180000;
+pub const __TVOS_18_1: u32 = 180100;
+pub const __TVOS_18_2: u32 = 180200;
+pub const __TVOS_18_3: u32 = 180300;
+pub const __TVOS_18_4: u32 = 180400;
+pub const __TVOS_18_5: u32 = 180500;
+pub const __TVOS_18_6: u32 = 180600;
+pub const __TVOS_19_0: u32 = 190000;
+pub const __TVOS_26_0: u32 = 260000;
+pub const __TVOS_26_1: u32 = 260100;
 pub const __BRIDGEOS_2_0: u32 = 20000;
 pub const __BRIDGEOS_3_0: u32 = 30000;
 pub const __BRIDGEOS_3_1: u32 = 30100;
@@ -601,15 +689,60 @@ pub const __BRIDGEOS_7_1: u32 = 70100;
 pub const __BRIDGEOS_7_2: u32 = 70200;
 pub const __BRIDGEOS_7_3: u32 = 70300;
 pub const __BRIDGEOS_7_4: u32 = 70400;
+pub const __BRIDGEOS_7_6: u32 = 70600;
 pub const __BRIDGEOS_8_0: u32 = 80000;
+pub const __BRIDGEOS_8_1: u32 = 80100;
+pub const __BRIDGEOS_8_2: u32 = 80200;
+pub const __BRIDGEOS_8_3: u32 = 80300;
+pub const __BRIDGEOS_8_4: u32 = 80400;
+pub const __BRIDGEOS_8_5: u32 = 80500;
+pub const __BRIDGEOS_8_6: u32 = 80600;
+pub const __BRIDGEOS_9_0: u32 = 90000;
+pub const __BRIDGEOS_9_1: u32 = 90100;
+pub const __BRIDGEOS_9_2: u32 = 90200;
+pub const __BRIDGEOS_9_3: u32 = 90300;
+pub const __BRIDGEOS_9_4: u32 = 90400;
+pub const __BRIDGEOS_9_5: u32 = 90500;
+pub const __BRIDGEOS_9_6: u32 = 90600;
+pub const __BRIDGEOS_10_0: u32 = 100000;
+pub const __BRIDGEOS_10_1: u32 = 100100;
 pub const __DRIVERKIT_19_0: u32 = 190000;
 pub const __DRIVERKIT_20_0: u32 = 200000;
 pub const __DRIVERKIT_21_0: u32 = 210000;
 pub const __DRIVERKIT_22_0: u32 = 220000;
 pub const __DRIVERKIT_22_4: u32 = 220400;
 pub const __DRIVERKIT_22_5: u32 = 220500;
+pub const __DRIVERKIT_22_6: u32 = 220600;
 pub const __DRIVERKIT_23_0: u32 = 230000;
-pub const __XROS_1_0: u32 = 10000;
+pub const __DRIVERKIT_23_1: u32 = 230100;
+pub const __DRIVERKIT_23_2: u32 = 230200;
+pub const __DRIVERKIT_23_3: u32 = 230300;
+pub const __DRIVERKIT_23_4: u32 = 230400;
+pub const __DRIVERKIT_23_5: u32 = 230500;
+pub const __DRIVERKIT_23_6: u32 = 230600;
+pub const __DRIVERKIT_24_0: u32 = 240000;
+pub const __DRIVERKIT_24_1: u32 = 240100;
+pub const __DRIVERKIT_24_2: u32 = 240200;
+pub const __DRIVERKIT_24_3: u32 = 240300;
+pub const __DRIVERKIT_24_4: u32 = 240400;
+pub const __DRIVERKIT_24_5: u32 = 240500;
+pub const __DRIVERKIT_24_6: u32 = 240600;
+pub const __DRIVERKIT_25_0: u32 = 250000;
+pub const __DRIVERKIT_25_1: u32 = 250100;
+pub const __VISIONOS_1_0: u32 = 10000;
+pub const __VISIONOS_1_1: u32 = 10100;
+pub const __VISIONOS_1_2: u32 = 10200;
+pub const __VISIONOS_1_3: u32 = 10300;
+pub const __VISIONOS_2_0: u32 = 20000;
+pub const __VISIONOS_2_1: u32 = 20100;
+pub const __VISIONOS_2_2: u32 = 20200;
+pub const __VISIONOS_2_3: u32 = 20300;
+pub const __VISIONOS_2_4: u32 = 20400;
+pub const __VISIONOS_2_5: u32 = 20500;
+pub const __VISIONOS_2_6: u32 = 20600;
+pub const __VISIONOS_3_0: u32 = 30000;
+pub const __VISIONOS_26_0: u32 = 260000;
+pub const __VISIONOS_26_1: u32 = 260100;
 pub const MAC_OS_X_VERSION_10_0: u32 = 1000;
 pub const MAC_OS_X_VERSION_10_1: u32 = 1010;
 pub const MAC_OS_X_VERSION_10_2: u32 = 1020;
@@ -656,19 +789,45 @@ pub const MAC_OS_VERSION_12_2: u32 = 120200;
 pub const MAC_OS_VERSION_12_3: u32 = 120300;
 pub const MAC_OS_VERSION_12_4: u32 = 120400;
 pub const MAC_OS_VERSION_12_5: u32 = 120500;
+pub const MAC_OS_VERSION_12_6: u32 = 120600;
+pub const MAC_OS_VERSION_12_7: u32 = 120700;
 pub const MAC_OS_VERSION_13_0: u32 = 130000;
 pub const MAC_OS_VERSION_13_1: u32 = 130100;
 pub const MAC_OS_VERSION_13_2: u32 = 130200;
 pub const MAC_OS_VERSION_13_3: u32 = 130300;
 pub const MAC_OS_VERSION_13_4: u32 = 130400;
+pub const MAC_OS_VERSION_13_5: u32 = 130500;
+pub const MAC_OS_VERSION_13_6: u32 = 130600;
+pub const MAC_OS_VERSION_13_7: u32 = 130700;
 pub const MAC_OS_VERSION_14_0: u32 = 140000;
-pub const __MAC_OS_X_VERSION_MAX_ALLOWED: u32 = 140000;
+pub const MAC_OS_VERSION_14_1: u32 = 140100;
+pub const MAC_OS_VERSION_14_2: u32 = 140200;
+pub const MAC_OS_VERSION_14_3: u32 = 140300;
+pub const MAC_OS_VERSION_14_4: u32 = 140400;
+pub const MAC_OS_VERSION_14_5: u32 = 140500;
+pub const MAC_OS_VERSION_14_6: u32 = 140600;
+pub const MAC_OS_VERSION_14_7: u32 = 140700;
+pub const MAC_OS_VERSION_15_0: u32 = 150000;
+pub const MAC_OS_VERSION_15_1: u32 = 150100;
+pub const MAC_OS_VERSION_15_2: u32 = 150200;
+pub const MAC_OS_VERSION_15_3: u32 = 150300;
+pub const MAC_OS_VERSION_15_4: u32 = 150400;
+pub const MAC_OS_VERSION_15_5: u32 = 150500;
+pub const MAC_OS_VERSION_15_6: u32 = 150600;
+pub const MAC_OS_VERSION_16_0: u32 = 160000;
+pub const MAC_OS_VERSION_26_0: u32 = 260000;
+pub const MAC_OS_VERSION_26_1: u32 = 260100;
+pub const __AVAILABILITY_VERSIONS_VERSION_HASH: u32 = 93585900;
+pub const __AVAILABILITY_VERSIONS_VERSION_STRING: &[u8; 6] = b"Local\0";
+pub const __AVAILABILITY_FILE: &[u8; 23] = b"AvailabilityVersions.h\0";
+pub const __MAC_OS_X_VERSION_MAX_ALLOWED: u32 = 260100;
 pub const __ENABLE_LEGACY_MAC_AVAILABILITY: u32 = 1;
 pub const __DARWIN_WCHAR_MIN: i32 = -2147483648;
 pub const _FORTIFY_SOURCE: u32 = 2;
+pub const USE_CLANG_STDDEF: u32 = 0;
 pub const __DARWIN_NSIG: u32 = 32;
 pub const NSIG: u32 = 32;
-pub const _I386_SIGNAL_H_: u32 = 1;
+pub const _ARM_SIGNAL_: u32 = 1;
 pub const SIGHUP: u32 = 1;
 pub const SIGINT: u32 = 2;
 pub const SIGQUIT: u32 = 3;
@@ -701,20 +860,11 @@ pub const SIGWINCH: u32 = 28;
 pub const SIGINFO: u32 = 29;
 pub const SIGUSR1: u32 = 30;
 pub const SIGUSR2: u32 = 31;
-pub const FP_PREC_24B: u32 = 0;
-pub const FP_PREC_53B: u32 = 2;
-pub const FP_PREC_64B: u32 = 3;
-pub const FP_RND_NEAR: u32 = 0;
-pub const FP_RND_DOWN: u32 = 1;
-pub const FP_RND_UP: u32 = 2;
-pub const FP_CHOP: u32 = 3;
-pub const FP_STATE_BYTES: u32 = 512;
-pub const _X86_INSTRUCTION_STATE_MAX_INSN_BYTES: u32 = 2380;
-pub const _X86_INSTRUCTION_STATE_CACHELINE_SIZE: u32 = 64;
-pub const __LASTBRANCH_MAX: u32 = 32;
+pub const __DARWIN_OPAQUE_ARM_THREAD_STATE64: u32 = 0;
 pub const SIGEV_NONE: u32 = 0;
 pub const SIGEV_SIGNAL: u32 = 1;
 pub const SIGEV_THREAD: u32 = 3;
+pub const SIGEV_KEVENT: u32 = 4;
 pub const ILL_NOOP: u32 = 0;
 pub const ILL_ILLOPC: u32 = 1;
 pub const ILL_ILLTRP: u32 = 2;
@@ -836,6 +986,7 @@ pub const IOPOL_TYPE_VFS_IGNORE_PERMISSIONS: u32 = 7;
 pub const IOPOL_TYPE_VFS_SKIP_MTIME_UPDATE: u32 = 8;
 pub const IOPOL_TYPE_VFS_ALLOW_LOW_SPACE_WRITES: u32 = 9;
 pub const IOPOL_TYPE_VFS_DISALLOW_RW_FOR_O_EVTONLY: u32 = 10;
+pub const IOPOL_TYPE_VFS_ENTITLED_RESERVE_ACCESS: u32 = 14;
 pub const IOPOL_SCOPE_PROCESS: u32 = 0;
 pub const IOPOL_SCOPE_THREAD: u32 = 1;
 pub const IOPOL_SCOPE_DARWIN_BG: u32 = 2;
@@ -852,6 +1003,8 @@ pub const IOPOL_ATIME_UPDATES_OFF: u32 = 1;
 pub const IOPOL_MATERIALIZE_DATALESS_FILES_DEFAULT: u32 = 0;
 pub const IOPOL_MATERIALIZE_DATALESS_FILES_OFF: u32 = 1;
 pub const IOPOL_MATERIALIZE_DATALESS_FILES_ON: u32 = 2;
+pub const IOPOL_MATERIALIZE_DATALESS_FILES_ORIG: u32 = 4;
+pub const IOPOL_MATERIALIZE_DATALESS_FILES_BASIC_MASK: u32 = 3;
 pub const IOPOL_VFS_STATFS_NO_DATA_VOLUME_DEFAULT: u32 = 0;
 pub const IOPOL_VFS_STATFS_FORCE_NO_DATA_VOLUME: u32 = 1;
 pub const IOPOL_VFS_TRIGGER_RESOLVE_DEFAULT: u32 = 0;
@@ -862,12 +1015,15 @@ pub const IOPOL_VFS_IGNORE_PERMISSIONS_OFF: u32 = 0;
 pub const IOPOL_VFS_IGNORE_PERMISSIONS_ON: u32 = 1;
 pub const IOPOL_VFS_SKIP_MTIME_UPDATE_OFF: u32 = 0;
 pub const IOPOL_VFS_SKIP_MTIME_UPDATE_ON: u32 = 1;
+pub const IOPOL_VFS_SKIP_MTIME_UPDATE_IGNORE: u32 = 2;
 pub const IOPOL_VFS_ALLOW_LOW_SPACE_WRITES_OFF: u32 = 0;
 pub const IOPOL_VFS_ALLOW_LOW_SPACE_WRITES_ON: u32 = 1;
 pub const IOPOL_VFS_DISALLOW_RW_FOR_O_EVTONLY_DEFAULT: u32 = 0;
 pub const IOPOL_VFS_DISALLOW_RW_FOR_O_EVTONLY_ON: u32 = 1;
 pub const IOPOL_VFS_NOCACHE_WRITE_FS_BLKSIZE_DEFAULT: u32 = 0;
 pub const IOPOL_VFS_NOCACHE_WRITE_FS_BLKSIZE_ON: u32 = 1;
+pub const IOPOL_VFS_ENTITLED_RESERVE_ACCESS_OFF: u32 = 0;
+pub const IOPOL_VFS_ENTITLED_RESERVE_ACCESS_ON: u32 = 1;
 pub const WNOHANG: u32 = 1;
 pub const WUNTRACED: u32 = 2;
 pub const WCOREFLAG: u32 = 128;
@@ -883,22 +1039,23 @@ pub const _QUAD_LOWWORD: u32 = 0;
 pub const __DARWIN_LITTLE_ENDIAN: u32 = 1234;
 pub const __DARWIN_BIG_ENDIAN: u32 = 4321;
 pub const __DARWIN_PDP_ENDIAN: u32 = 3412;
-pub const __DARWIN_BYTE_ORDER: u32 = 1234;
 pub const LITTLE_ENDIAN: u32 = 1234;
 pub const BIG_ENDIAN: u32 = 4321;
 pub const PDP_ENDIAN: u32 = 3412;
+pub const __DARWIN_BYTE_ORDER: u32 = 1234;
 pub const BYTE_ORDER: u32 = 1234;
 pub const EXIT_FAILURE: u32 = 1;
 pub const EXIT_SUCCESS: u32 = 0;
 pub const RAND_MAX: u32 = 2147483647;
+pub const _MALLOC_TYPE_MALLOC_BACKDEPLOY_PUBLIC: u32 = 1;
 pub const _USE_FORTIFY_LEVEL: u32 = 2;
-pub const __HAS_FIXED_CHK_PROTOTYPES: u32 = 1;
-pub const __GNUC_VA_LIST: u32 = 1;
+pub const USE_CLANG_STDARG: u32 = 0;
 pub const RENAME_SECLUDE: u32 = 1;
 pub const RENAME_SWAP: u32 = 2;
 pub const RENAME_EXCL: u32 = 4;
 pub const RENAME_RESERVED1: u32 = 8;
 pub const RENAME_NOFOLLOW_ANY: u32 = 16;
+pub const RENAME_RESOLVE_BENEATH: u32 = 32;
 pub const SEEK_SET: u32 = 0;
 pub const SEEK_CUR: u32 = 1;
 pub const SEEK_END: u32 = 2;
@@ -932,6 +1089,7 @@ pub const L_tmpnam: u32 = 1024;
 pub const TMP_MAX: u32 = 308915776;
 pub const L_ctermid: u32 = 1024;
 pub const __DARWIN_CLK_TCK: u32 = 100;
+pub const USE_CLANG_LIMITS: u32 = 0;
 pub const MB_LEN_MAX: u32 = 6;
 pub const CLK_TCK: u32 = 100;
 pub const CHAR_BIT: u32 = 8;
@@ -1019,7 +1177,7 @@ pub const _POSIX_THREAD_KEYS_MAX: u32 = 128;
 pub const _POSIX_THREAD_THREADS_MAX: u32 = 64;
 pub const PTHREAD_DESTRUCTOR_ITERATIONS: u32 = 4;
 pub const PTHREAD_KEYS_MAX: u32 = 512;
-pub const PTHREAD_STACK_MIN: u32 = 8192;
+pub const PTHREAD_STACK_MIN: u32 = 16384;
 pub const _POSIX_HOST_NAME_MAX: u32 = 255;
 pub const _POSIX_LOGIN_NAME_MAX: u32 = 9;
 pub const _POSIX_SS_REPL_MAX: u32 = 4;
@@ -1153,7 +1311,8 @@ pub const ENOPOLICY: u32 = 103;
 pub const ENOTRECOVERABLE: u32 = 104;
 pub const EOWNERDEAD: u32 = 105;
 pub const EQFULL: u32 = 106;
-pub const ELAST: u32 = 106;
+pub const ENOTCAPABLE: u32 = 107;
+pub const ELAST: u32 = 107;
 pub const __DARWIN_FD_SETSIZE: u32 = 1024;
 pub const __DARWIN_NBBY: u32 = 8;
 pub const NBBY: u32 = 8;
@@ -1163,7 +1322,7 @@ pub const HTS_PATH_SEPARATOR_CHAR: u8 = 58u8;
 pub const HTS_PATH_SEPARATOR_STR: &[u8; 2] = b":\0";
 pub const HTS_RESIZE_CLEAR: u32 = 1;
 pub const HTS_IDX_DELIM: &[u8; 8] = b"##idx##\0";
-pub const HTS_VERSION: u32 = 101901;
+pub const HTS_VERSION: u32 = 102300;
 pub const HTS_FEATURE_CONFIGURE: u32 = 1;
 pub const HTS_FEATURE_PLUGINS: u32 = 2;
 pub const HTS_FEATURE_LIBCURL: u32 = 1024;
@@ -1200,7 +1359,7 @@ pub const FT_VCF_GZ: u32 = 3;
 pub const FT_BCF: u32 = 4;
 pub const FT_BCF_GZ: u32 = 5;
 pub const FT_STDIN: u32 = 8;
-pub const HTS_ALLOW_UNALIGNED: u32 = 1;
+pub const HTS_ALLOW_UNALIGNED: u32 = 0;
 pub const BCF_HL_FLT: u32 = 0;
 pub const BCF_HL_INFO: u32 = 1;
 pub const BCF_HL_FMT: u32 = 2;
@@ -1217,6 +1376,11 @@ pub const BCF_VL_VAR: u32 = 1;
 pub const BCF_VL_A: u32 = 2;
 pub const BCF_VL_G: u32 = 3;
 pub const BCF_VL_R: u32 = 4;
+pub const BCF_VL_P: u32 = 5;
+pub const BCF_VL_LA: u32 = 6;
+pub const BCF_VL_LG: u32 = 7;
+pub const BCF_VL_LR: u32 = 8;
+pub const BCF_VL_M: u32 = 9;
 pub const BCF_DT_ID: u32 = 0;
 pub const BCF_DT_CTG: u32 = 1;
 pub const BCF_DT_SAMPLE: u32 = 2;
@@ -1323,6 +1487,7 @@ pub const TBX_MAX_SHIFT: u32 = 31;
 pub const TBX_GENERIC: u32 = 0;
 pub const TBX_SAM: u32 = 1;
 pub const TBX_VCF: u32 = 2;
+pub const TBX_GAF: u32 = 3;
 pub const TBX_UCSC: u32 = 65536;
 pub const COLLAPSE_NONE: u32 = 0;
 pub const COLLAPSE_SNPS: u32 = 1;
@@ -1337,6 +1502,7 @@ pub const BCF_SR_PAIR_SOME: u32 = 8;
 pub const BCF_SR_PAIR_SNP_REF: u32 = 16;
 pub const BCF_SR_PAIR_INDEL_REF: u32 = 32;
 pub const BCF_SR_PAIR_EXACT: u32 = 64;
+pub const BCF_SR_PAIR_ID: u32 = 128;
 pub const BCF_SR_PAIR_BOTH: u32 = 3;
 pub const BCF_SR_PAIR_BOTH_REF: u32 = 51;
 pub type wchar_t = ::std::os::raw::c_int;
@@ -1476,19 +1642,6 @@ pub type __darwin_pthread_once_t = _opaque_pthread_once_t;
 pub type __darwin_pthread_rwlock_t = _opaque_pthread_rwlock_t;
 pub type __darwin_pthread_rwlockattr_t = _opaque_pthread_rwlockattr_t;
 pub type __darwin_pthread_t = *mut _opaque_pthread_t;
-pub type u_int8_t = ::std::os::raw::c_uchar;
-pub type u_int16_t = ::std::os::raw::c_ushort;
-pub type u_int32_t = ::std::os::raw::c_uint;
-pub type u_int64_t = ::std::os::raw::c_ulonglong;
-pub type register_t = i64;
-pub type user_addr_t = u_int64_t;
-pub type user_size_t = u_int64_t;
-pub type user_ssize_t = i64;
-pub type user_long_t = i64;
-pub type user_ulong_t = u_int64_t;
-pub type user_time_t = i64;
-pub type user_off_t = i64;
-pub type syscall_arg_t = u_int64_t;
 pub type intmax_t = ::std::os::raw::c_long;
 pub type uintmax_t = ::std::os::raw::c_ulong;
 pub type __darwin_nl_item = ::std::os::raw::c_int;
@@ -1565,1761 +1718,162 @@ pub type idtype_t = ::std::os::raw::c_uint;
 pub type pid_t = __darwin_pid_t;
 pub type id_t = __darwin_id_t;
 pub type sig_atomic_t = ::std::os::raw::c_int;
+pub type u_int8_t = ::std::os::raw::c_uchar;
+pub type u_int16_t = ::std::os::raw::c_ushort;
+pub type u_int32_t = ::std::os::raw::c_uint;
+pub type u_int64_t = ::std::os::raw::c_ulonglong;
+pub type register_t = i64;
+pub type user_addr_t = u_int64_t;
+pub type user_size_t = u_int64_t;
+pub type user_ssize_t = i64;
+pub type user_long_t = i64;
+pub type user_ulong_t = u_int64_t;
+pub type user_time_t = i64;
+pub type user_off_t = i64;
+pub type syscall_arg_t = u_int64_t;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_i386_thread_state {
-    pub __eax: ::std::os::raw::c_uint,
-    pub __ebx: ::std::os::raw::c_uint,
-    pub __ecx: ::std::os::raw::c_uint,
-    pub __edx: ::std::os::raw::c_uint,
-    pub __edi: ::std::os::raw::c_uint,
-    pub __esi: ::std::os::raw::c_uint,
-    pub __ebp: ::std::os::raw::c_uint,
-    pub __esp: ::std::os::raw::c_uint,
-    pub __ss: ::std::os::raw::c_uint,
-    pub __eflags: ::std::os::raw::c_uint,
-    pub __eip: ::std::os::raw::c_uint,
-    pub __cs: ::std::os::raw::c_uint,
-    pub __ds: ::std::os::raw::c_uint,
-    pub __es: ::std::os::raw::c_uint,
-    pub __fs: ::std::os::raw::c_uint,
-    pub __gs: ::std::os::raw::c_uint,
-}
-#[repr(C)]
-#[repr(align(2))]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_fp_control {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
-}
-impl __darwin_fp_control {
-    #[inline]
-    pub fn __invalid(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___invalid(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __invalid_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                0usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___invalid_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                0usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __denorm(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___denorm(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __denorm_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                1usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___denorm_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                1usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __zdiv(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___zdiv(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(2usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __zdiv_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                2usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___zdiv_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                2usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __ovrfl(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___ovrfl(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(3usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __ovrfl_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                3usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___ovrfl_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                3usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __undfl(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(4usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___undfl(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(4usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __undfl_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                4usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___undfl_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                4usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __precis(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(5usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___precis(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(5usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __precis_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                5usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___precis_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                5usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __pc(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(8usize, 2u8) as u16) }
-    }
-    #[inline]
-    pub fn set___pc(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(8usize, 2u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __pc_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                8usize,
-                2u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___pc_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                8usize,
-                2u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __rc(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(10usize, 2u8) as u16) }
-    }
-    #[inline]
-    pub fn set___rc(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(10usize, 2u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __rc_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                10usize,
-                2u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___rc_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                10usize,
-                2u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        __invalid: ::std::os::raw::c_ushort,
-        __denorm: ::std::os::raw::c_ushort,
-        __zdiv: ::std::os::raw::c_ushort,
-        __ovrfl: ::std::os::raw::c_ushort,
-        __undfl: ::std::os::raw::c_ushort,
-        __precis: ::std::os::raw::c_ushort,
-        __pc: ::std::os::raw::c_ushort,
-        __rc: ::std::os::raw::c_ushort,
-    ) -> __BindgenBitfieldUnit<[u8; 2usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 2usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let __invalid: u16 = unsafe { ::std::mem::transmute(__invalid) };
-            __invalid as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let __denorm: u16 = unsafe { ::std::mem::transmute(__denorm) };
-            __denorm as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 1u8, {
-            let __zdiv: u16 = unsafe { ::std::mem::transmute(__zdiv) };
-            __zdiv as u64
-        });
-        __bindgen_bitfield_unit.set(3usize, 1u8, {
-            let __ovrfl: u16 = unsafe { ::std::mem::transmute(__ovrfl) };
-            __ovrfl as u64
-        });
-        __bindgen_bitfield_unit.set(4usize, 1u8, {
-            let __undfl: u16 = unsafe { ::std::mem::transmute(__undfl) };
-            __undfl as u64
-        });
-        __bindgen_bitfield_unit.set(5usize, 1u8, {
-            let __precis: u16 = unsafe { ::std::mem::transmute(__precis) };
-            __precis as u64
-        });
-        __bindgen_bitfield_unit.set(8usize, 2u8, {
-            let __pc: u16 = unsafe { ::std::mem::transmute(__pc) };
-            __pc as u64
-        });
-        __bindgen_bitfield_unit.set(10usize, 2u8, {
-            let __rc: u16 = unsafe { ::std::mem::transmute(__rc) };
-            __rc as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-pub type __darwin_fp_control_t = __darwin_fp_control;
-#[repr(C)]
-#[repr(align(2))]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_fp_status {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
-}
-impl __darwin_fp_status {
-    #[inline]
-    pub fn __invalid(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___invalid(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __invalid_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                0usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___invalid_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                0usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __denorm(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___denorm(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __denorm_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                1usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___denorm_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                1usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __zdiv(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___zdiv(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(2usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __zdiv_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                2usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___zdiv_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                2usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __ovrfl(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___ovrfl(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(3usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __ovrfl_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                3usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___ovrfl_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                3usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __undfl(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(4usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___undfl(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(4usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __undfl_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                4usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___undfl_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                4usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __precis(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(5usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___precis(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(5usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __precis_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                5usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___precis_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                5usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __stkflt(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(6usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___stkflt(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(6usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __stkflt_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                6usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___stkflt_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                6usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __errsumm(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(7usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___errsumm(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(7usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __errsumm_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                7usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___errsumm_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                7usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __c0(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(8usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___c0(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(8usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __c0_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                8usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___c0_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                8usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __c1(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(9usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___c1(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(9usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __c1_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                9usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___c1_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                9usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __c2(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(10usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___c2(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(10usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __c2_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                10usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___c2_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                10usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __tos(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(11usize, 3u8) as u16) }
-    }
-    #[inline]
-    pub fn set___tos(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(11usize, 3u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __tos_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                11usize,
-                3u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___tos_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                11usize,
-                3u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __c3(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(14usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___c3(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(14usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __c3_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                14usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___c3_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                14usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __busy(&self) -> ::std::os::raw::c_ushort {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(15usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set___busy(&mut self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            self._bitfield_1.set(15usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __busy_raw(this: *const Self) -> ::std::os::raw::c_ushort {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 2usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                15usize,
-                1u8,
-            ) as u16)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___busy_raw(this: *mut Self, val: ::std::os::raw::c_ushort) {
-        unsafe {
-            let val: u16 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 2usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                15usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        __invalid: ::std::os::raw::c_ushort,
-        __denorm: ::std::os::raw::c_ushort,
-        __zdiv: ::std::os::raw::c_ushort,
-        __ovrfl: ::std::os::raw::c_ushort,
-        __undfl: ::std::os::raw::c_ushort,
-        __precis: ::std::os::raw::c_ushort,
-        __stkflt: ::std::os::raw::c_ushort,
-        __errsumm: ::std::os::raw::c_ushort,
-        __c0: ::std::os::raw::c_ushort,
-        __c1: ::std::os::raw::c_ushort,
-        __c2: ::std::os::raw::c_ushort,
-        __tos: ::std::os::raw::c_ushort,
-        __c3: ::std::os::raw::c_ushort,
-        __busy: ::std::os::raw::c_ushort,
-    ) -> __BindgenBitfieldUnit<[u8; 2usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 2usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let __invalid: u16 = unsafe { ::std::mem::transmute(__invalid) };
-            __invalid as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let __denorm: u16 = unsafe { ::std::mem::transmute(__denorm) };
-            __denorm as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 1u8, {
-            let __zdiv: u16 = unsafe { ::std::mem::transmute(__zdiv) };
-            __zdiv as u64
-        });
-        __bindgen_bitfield_unit.set(3usize, 1u8, {
-            let __ovrfl: u16 = unsafe { ::std::mem::transmute(__ovrfl) };
-            __ovrfl as u64
-        });
-        __bindgen_bitfield_unit.set(4usize, 1u8, {
-            let __undfl: u16 = unsafe { ::std::mem::transmute(__undfl) };
-            __undfl as u64
-        });
-        __bindgen_bitfield_unit.set(5usize, 1u8, {
-            let __precis: u16 = unsafe { ::std::mem::transmute(__precis) };
-            __precis as u64
-        });
-        __bindgen_bitfield_unit.set(6usize, 1u8, {
-            let __stkflt: u16 = unsafe { ::std::mem::transmute(__stkflt) };
-            __stkflt as u64
-        });
-        __bindgen_bitfield_unit.set(7usize, 1u8, {
-            let __errsumm: u16 = unsafe { ::std::mem::transmute(__errsumm) };
-            __errsumm as u64
-        });
-        __bindgen_bitfield_unit.set(8usize, 1u8, {
-            let __c0: u16 = unsafe { ::std::mem::transmute(__c0) };
-            __c0 as u64
-        });
-        __bindgen_bitfield_unit.set(9usize, 1u8, {
-            let __c1: u16 = unsafe { ::std::mem::transmute(__c1) };
-            __c1 as u64
-        });
-        __bindgen_bitfield_unit.set(10usize, 1u8, {
-            let __c2: u16 = unsafe { ::std::mem::transmute(__c2) };
-            __c2 as u64
-        });
-        __bindgen_bitfield_unit.set(11usize, 3u8, {
-            let __tos: u16 = unsafe { ::std::mem::transmute(__tos) };
-            __tos as u64
-        });
-        __bindgen_bitfield_unit.set(14usize, 1u8, {
-            let __c3: u16 = unsafe { ::std::mem::transmute(__c3) };
-            __c3 as u64
-        });
-        __bindgen_bitfield_unit.set(15usize, 1u8, {
-            let __busy: u16 = unsafe { ::std::mem::transmute(__busy) };
-            __busy as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-pub type __darwin_fp_status_t = __darwin_fp_status;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_mmst_reg {
-    pub __mmst_reg: [::std::os::raw::c_char; 10usize],
-    pub __mmst_rsrv: [::std::os::raw::c_char; 6usize],
+pub struct __darwin_arm_exception_state {
+    pub __exception: __uint32_t,
+    pub __fsr: __uint32_t,
+    pub __far: __uint32_t,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_xmm_reg {
-    pub __xmm_reg: [::std::os::raw::c_char; 16usize],
+pub struct __darwin_arm_exception_state64 {
+    pub __far: __uint64_t,
+    pub __esr: __uint32_t,
+    pub __exception: __uint32_t,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_ymm_reg {
-    pub __ymm_reg: [::std::os::raw::c_char; 32usize],
+pub struct __darwin_arm_exception_state64_v2 {
+    pub __far: __uint64_t,
+    pub __esr: __uint64_t,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_zmm_reg {
-    pub __zmm_reg: [::std::os::raw::c_char; 64usize],
+pub struct __darwin_arm_thread_state {
+    pub __r: [__uint32_t; 13usize],
+    pub __sp: __uint32_t,
+    pub __lr: __uint32_t,
+    pub __pc: __uint32_t,
+    pub __cpsr: __uint32_t,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_opmask_reg {
-    pub __opmask_reg: [::std::os::raw::c_char; 8usize],
+pub struct __darwin_arm_thread_state64 {
+    pub __x: [__uint64_t; 29usize],
+    pub __fp: __uint64_t,
+    pub __lr: __uint64_t,
+    pub __sp: __uint64_t,
+    pub __pc: __uint64_t,
+    pub __cpsr: __uint32_t,
+    pub __pad: __uint32_t,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_i386_float_state {
-    pub __fpu_reserved: [::std::os::raw::c_int; 2usize],
-    pub __fpu_fcw: __darwin_fp_control,
-    pub __fpu_fsw: __darwin_fp_status,
-    pub __fpu_ftw: __uint8_t,
-    pub __fpu_rsrv1: __uint8_t,
-    pub __fpu_fop: __uint16_t,
-    pub __fpu_ip: __uint32_t,
-    pub __fpu_cs: __uint16_t,
-    pub __fpu_rsrv2: __uint16_t,
-    pub __fpu_dp: __uint32_t,
-    pub __fpu_ds: __uint16_t,
-    pub __fpu_rsrv3: __uint16_t,
-    pub __fpu_mxcsr: __uint32_t,
-    pub __fpu_mxcsrmask: __uint32_t,
-    pub __fpu_stmm0: __darwin_mmst_reg,
-    pub __fpu_stmm1: __darwin_mmst_reg,
-    pub __fpu_stmm2: __darwin_mmst_reg,
-    pub __fpu_stmm3: __darwin_mmst_reg,
-    pub __fpu_stmm4: __darwin_mmst_reg,
-    pub __fpu_stmm5: __darwin_mmst_reg,
-    pub __fpu_stmm6: __darwin_mmst_reg,
-    pub __fpu_stmm7: __darwin_mmst_reg,
-    pub __fpu_xmm0: __darwin_xmm_reg,
-    pub __fpu_xmm1: __darwin_xmm_reg,
-    pub __fpu_xmm2: __darwin_xmm_reg,
-    pub __fpu_xmm3: __darwin_xmm_reg,
-    pub __fpu_xmm4: __darwin_xmm_reg,
-    pub __fpu_xmm5: __darwin_xmm_reg,
-    pub __fpu_xmm6: __darwin_xmm_reg,
-    pub __fpu_xmm7: __darwin_xmm_reg,
-    pub __fpu_rsrv4: [::std::os::raw::c_char; 224usize],
-    pub __fpu_reserved1: ::std::os::raw::c_int,
+pub struct __darwin_arm_vfp_state {
+    pub __r: [__uint32_t; 64usize],
+    pub __fpscr: __uint32_t,
+}
+#[repr(C)]
+#[repr(align(16))]
+#[derive(Debug, Copy, Clone)]
+pub struct __darwin_arm_neon_state64 {
+    pub __v: [__uint128_t; 32usize],
+    pub __fpsr: __uint32_t,
+    pub __fpcr: __uint32_t,
+}
+#[repr(C)]
+#[repr(align(16))]
+#[derive(Debug, Copy, Clone)]
+pub struct __darwin_arm_neon_state {
+    pub __v: [__uint128_t; 16usize],
+    pub __fpsr: __uint32_t,
+    pub __fpcr: __uint32_t,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_i386_avx_state {
-    pub __fpu_reserved: [::std::os::raw::c_int; 2usize],
-    pub __fpu_fcw: __darwin_fp_control,
-    pub __fpu_fsw: __darwin_fp_status,
-    pub __fpu_ftw: __uint8_t,
-    pub __fpu_rsrv1: __uint8_t,
-    pub __fpu_fop: __uint16_t,
-    pub __fpu_ip: __uint32_t,
-    pub __fpu_cs: __uint16_t,
-    pub __fpu_rsrv2: __uint16_t,
-    pub __fpu_dp: __uint32_t,
-    pub __fpu_ds: __uint16_t,
-    pub __fpu_rsrv3: __uint16_t,
-    pub __fpu_mxcsr: __uint32_t,
-    pub __fpu_mxcsrmask: __uint32_t,
-    pub __fpu_stmm0: __darwin_mmst_reg,
-    pub __fpu_stmm1: __darwin_mmst_reg,
-    pub __fpu_stmm2: __darwin_mmst_reg,
-    pub __fpu_stmm3: __darwin_mmst_reg,
-    pub __fpu_stmm4: __darwin_mmst_reg,
-    pub __fpu_stmm5: __darwin_mmst_reg,
-    pub __fpu_stmm6: __darwin_mmst_reg,
-    pub __fpu_stmm7: __darwin_mmst_reg,
-    pub __fpu_xmm0: __darwin_xmm_reg,
-    pub __fpu_xmm1: __darwin_xmm_reg,
-    pub __fpu_xmm2: __darwin_xmm_reg,
-    pub __fpu_xmm3: __darwin_xmm_reg,
-    pub __fpu_xmm4: __darwin_xmm_reg,
-    pub __fpu_xmm5: __darwin_xmm_reg,
-    pub __fpu_xmm6: __darwin_xmm_reg,
-    pub __fpu_xmm7: __darwin_xmm_reg,
-    pub __fpu_rsrv4: [::std::os::raw::c_char; 224usize],
-    pub __fpu_reserved1: ::std::os::raw::c_int,
-    pub __avx_reserved1: [::std::os::raw::c_char; 64usize],
-    pub __fpu_ymmh0: __darwin_xmm_reg,
-    pub __fpu_ymmh1: __darwin_xmm_reg,
-    pub __fpu_ymmh2: __darwin_xmm_reg,
-    pub __fpu_ymmh3: __darwin_xmm_reg,
-    pub __fpu_ymmh4: __darwin_xmm_reg,
-    pub __fpu_ymmh5: __darwin_xmm_reg,
-    pub __fpu_ymmh6: __darwin_xmm_reg,
-    pub __fpu_ymmh7: __darwin_xmm_reg,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_i386_avx512_state {
-    pub __fpu_reserved: [::std::os::raw::c_int; 2usize],
-    pub __fpu_fcw: __darwin_fp_control,
-    pub __fpu_fsw: __darwin_fp_status,
-    pub __fpu_ftw: __uint8_t,
-    pub __fpu_rsrv1: __uint8_t,
-    pub __fpu_fop: __uint16_t,
-    pub __fpu_ip: __uint32_t,
-    pub __fpu_cs: __uint16_t,
-    pub __fpu_rsrv2: __uint16_t,
-    pub __fpu_dp: __uint32_t,
-    pub __fpu_ds: __uint16_t,
-    pub __fpu_rsrv3: __uint16_t,
-    pub __fpu_mxcsr: __uint32_t,
-    pub __fpu_mxcsrmask: __uint32_t,
-    pub __fpu_stmm0: __darwin_mmst_reg,
-    pub __fpu_stmm1: __darwin_mmst_reg,
-    pub __fpu_stmm2: __darwin_mmst_reg,
-    pub __fpu_stmm3: __darwin_mmst_reg,
-    pub __fpu_stmm4: __darwin_mmst_reg,
-    pub __fpu_stmm5: __darwin_mmst_reg,
-    pub __fpu_stmm6: __darwin_mmst_reg,
-    pub __fpu_stmm7: __darwin_mmst_reg,
-    pub __fpu_xmm0: __darwin_xmm_reg,
-    pub __fpu_xmm1: __darwin_xmm_reg,
-    pub __fpu_xmm2: __darwin_xmm_reg,
-    pub __fpu_xmm3: __darwin_xmm_reg,
-    pub __fpu_xmm4: __darwin_xmm_reg,
-    pub __fpu_xmm5: __darwin_xmm_reg,
-    pub __fpu_xmm6: __darwin_xmm_reg,
-    pub __fpu_xmm7: __darwin_xmm_reg,
-    pub __fpu_rsrv4: [::std::os::raw::c_char; 224usize],
-    pub __fpu_reserved1: ::std::os::raw::c_int,
-    pub __avx_reserved1: [::std::os::raw::c_char; 64usize],
-    pub __fpu_ymmh0: __darwin_xmm_reg,
-    pub __fpu_ymmh1: __darwin_xmm_reg,
-    pub __fpu_ymmh2: __darwin_xmm_reg,
-    pub __fpu_ymmh3: __darwin_xmm_reg,
-    pub __fpu_ymmh4: __darwin_xmm_reg,
-    pub __fpu_ymmh5: __darwin_xmm_reg,
-    pub __fpu_ymmh6: __darwin_xmm_reg,
-    pub __fpu_ymmh7: __darwin_xmm_reg,
-    pub __fpu_k0: __darwin_opmask_reg,
-    pub __fpu_k1: __darwin_opmask_reg,
-    pub __fpu_k2: __darwin_opmask_reg,
-    pub __fpu_k3: __darwin_opmask_reg,
-    pub __fpu_k4: __darwin_opmask_reg,
-    pub __fpu_k5: __darwin_opmask_reg,
-    pub __fpu_k6: __darwin_opmask_reg,
-    pub __fpu_k7: __darwin_opmask_reg,
-    pub __fpu_zmmh0: __darwin_ymm_reg,
-    pub __fpu_zmmh1: __darwin_ymm_reg,
-    pub __fpu_zmmh2: __darwin_ymm_reg,
-    pub __fpu_zmmh3: __darwin_ymm_reg,
-    pub __fpu_zmmh4: __darwin_ymm_reg,
-    pub __fpu_zmmh5: __darwin_ymm_reg,
-    pub __fpu_zmmh6: __darwin_ymm_reg,
-    pub __fpu_zmmh7: __darwin_ymm_reg,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_i386_exception_state {
-    pub __trapno: __uint16_t,
-    pub __cpu: __uint16_t,
-    pub __err: __uint32_t,
-    pub __faultvaddr: __uint32_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_x86_debug_state32 {
-    pub __dr0: ::std::os::raw::c_uint,
-    pub __dr1: ::std::os::raw::c_uint,
-    pub __dr2: ::std::os::raw::c_uint,
-    pub __dr3: ::std::os::raw::c_uint,
-    pub __dr4: ::std::os::raw::c_uint,
-    pub __dr5: ::std::os::raw::c_uint,
-    pub __dr6: ::std::os::raw::c_uint,
-    pub __dr7: ::std::os::raw::c_uint,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __x86_instruction_state {
-    pub __insn_stream_valid_bytes: ::std::os::raw::c_int,
-    pub __insn_offset: ::std::os::raw::c_int,
-    pub __out_of_synch: ::std::os::raw::c_int,
-    pub __insn_bytes: [__uint8_t; 2380usize],
-    pub __insn_cacheline: [__uint8_t; 64usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __last_branch_record {
-    pub __from_ip: __uint64_t,
-    pub __to_ip: __uint64_t,
-    pub _bitfield_align_1: [u16; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-    pub __bindgen_padding_0: u32,
-}
-impl __last_branch_record {
-    #[inline]
-    pub fn __mispredict(&self) -> __uint32_t {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set___mispredict(&mut self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __mispredict_raw(this: *const Self) -> __uint32_t {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                0usize,
-                1u8,
-            ) as u32)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___mispredict_raw(this: *mut Self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                0usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __tsx_abort(&self) -> __uint32_t {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set___tsx_abort(&mut self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __tsx_abort_raw(this: *const Self) -> __uint32_t {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                1usize,
-                1u8,
-            ) as u32)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___tsx_abort_raw(this: *mut Self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                1usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __in_tsx(&self) -> __uint32_t {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set___in_tsx(&mut self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(2usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __in_tsx_raw(this: *const Self) -> __uint32_t {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                2usize,
-                1u8,
-            ) as u32)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___in_tsx_raw(this: *mut Self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                2usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __cycle_count(&self) -> __uint32_t {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 16u8) as u32) }
-    }
-    #[inline]
-    pub fn set___cycle_count(&mut self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(3usize, 16u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __cycle_count_raw(this: *const Self) -> __uint32_t {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                3usize,
-                16u8,
-            ) as u32)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___cycle_count_raw(this: *mut Self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                3usize,
-                16u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __reserved(&self) -> __uint32_t {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(19usize, 13u8) as u32) }
-    }
-    #[inline]
-    pub fn set___reserved(&mut self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(19usize, 13u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __reserved_raw(this: *const Self) -> __uint32_t {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                19usize,
-                13u8,
-            ) as u32)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___reserved_raw(this: *mut Self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                19usize,
-                13u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        __mispredict: __uint32_t,
-        __tsx_abort: __uint32_t,
-        __in_tsx: __uint32_t,
-        __cycle_count: __uint32_t,
-        __reserved: __uint32_t,
-    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let __mispredict: u32 = unsafe { ::std::mem::transmute(__mispredict) };
-            __mispredict as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let __tsx_abort: u32 = unsafe { ::std::mem::transmute(__tsx_abort) };
-            __tsx_abort as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 1u8, {
-            let __in_tsx: u32 = unsafe { ::std::mem::transmute(__in_tsx) };
-            __in_tsx as u64
-        });
-        __bindgen_bitfield_unit.set(3usize, 16u8, {
-            let __cycle_count: u32 = unsafe { ::std::mem::transmute(__cycle_count) };
-            __cycle_count as u64
-        });
-        __bindgen_bitfield_unit.set(19usize, 13u8, {
-            let __reserved: u32 = unsafe { ::std::mem::transmute(__reserved) };
-            __reserved as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __last_branch_state {
-    pub __lbr_count: ::std::os::raw::c_int,
-    pub _bitfield_align_1: [u32; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-    pub __lbrs: [__last_branch_record; 32usize],
-}
-impl __last_branch_state {
-    #[inline]
-    pub fn __lbr_supported_tsx(&self) -> __uint32_t {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set___lbr_supported_tsx(&mut self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __lbr_supported_tsx_raw(this: *const Self) -> __uint32_t {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                0usize,
-                1u8,
-            ) as u32)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___lbr_supported_tsx_raw(this: *mut Self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                0usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __lbr_supported_cycle_count(&self) -> __uint32_t {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set___lbr_supported_cycle_count(&mut self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __lbr_supported_cycle_count_raw(this: *const Self) -> __uint32_t {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                1usize,
-                1u8,
-            ) as u32)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___lbr_supported_cycle_count_raw(this: *mut Self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                1usize,
-                1u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn __reserved(&self) -> __uint32_t {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 30u8) as u32) }
-    }
-    #[inline]
-    pub fn set___reserved(&mut self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(2usize, 30u8, val as u64)
-        }
-    }
-    #[inline]
-    pub unsafe fn __reserved_raw(this: *const Self) -> __uint32_t {
-        unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get(
-                ::std::ptr::addr_of!((*this)._bitfield_1),
-                2usize,
-                30u8,
-            ) as u32)
-        }
-    }
-    #[inline]
-    pub unsafe fn set___reserved_raw(this: *mut Self, val: __uint32_t) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
-                2usize,
-                30u8,
-                val as u64,
-            )
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        __lbr_supported_tsx: __uint32_t,
-        __lbr_supported_cycle_count: __uint32_t,
-        __reserved: __uint32_t,
-    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let __lbr_supported_tsx: u32 = unsafe { ::std::mem::transmute(__lbr_supported_tsx) };
-            __lbr_supported_tsx as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let __lbr_supported_cycle_count: u32 =
-                unsafe { ::std::mem::transmute(__lbr_supported_cycle_count) };
-            __lbr_supported_cycle_count as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 30u8, {
-            let __reserved: u32 = unsafe { ::std::mem::transmute(__reserved) };
-            __reserved as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __x86_pagein_state {
+pub struct __arm_pagein_state {
     pub __pagein_error: ::std::os::raw::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_x86_thread_state64 {
-    pub __rax: __uint64_t,
-    pub __rbx: __uint64_t,
-    pub __rcx: __uint64_t,
-    pub __rdx: __uint64_t,
-    pub __rdi: __uint64_t,
-    pub __rsi: __uint64_t,
-    pub __rbp: __uint64_t,
-    pub __rsp: __uint64_t,
-    pub __r8: __uint64_t,
-    pub __r9: __uint64_t,
-    pub __r10: __uint64_t,
-    pub __r11: __uint64_t,
-    pub __r12: __uint64_t,
-    pub __r13: __uint64_t,
-    pub __r14: __uint64_t,
-    pub __r15: __uint64_t,
-    pub __rip: __uint64_t,
-    pub __rflags: __uint64_t,
-    pub __cs: __uint64_t,
-    pub __fs: __uint64_t,
-    pub __gs: __uint64_t,
+pub struct __darwin_arm_sme_state {
+    pub __svcr: __uint64_t,
+    pub __tpidr2_el0: __uint64_t,
+    pub __svl_b: __uint16_t,
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone)]
+pub struct __darwin_arm_sve_z_state {
+    pub __z: [[::std::os::raw::c_char; 256usize]; 16usize],
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone)]
+pub struct __darwin_arm_sve_p_state {
+    pub __p: [[::std::os::raw::c_char; 32usize]; 16usize],
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone)]
+pub struct __darwin_arm_sme_za_state {
+    pub __za: [::std::os::raw::c_char; 4096usize],
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone)]
+pub struct __darwin_arm_sme2_state {
+    pub __zt0: [::std::os::raw::c_char; 64usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_x86_thread_full_state64 {
-    pub __ss64: __darwin_x86_thread_state64,
-    pub __ds: __uint64_t,
-    pub __es: __uint64_t,
-    pub __ss: __uint64_t,
-    pub __gsbase: __uint64_t,
+pub struct __arm_legacy_debug_state {
+    pub __bvr: [__uint32_t; 16usize],
+    pub __bcr: [__uint32_t; 16usize],
+    pub __wvr: [__uint32_t; 16usize],
+    pub __wcr: [__uint32_t; 16usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_x86_float_state64 {
-    pub __fpu_reserved: [::std::os::raw::c_int; 2usize],
-    pub __fpu_fcw: __darwin_fp_control,
-    pub __fpu_fsw: __darwin_fp_status,
-    pub __fpu_ftw: __uint8_t,
-    pub __fpu_rsrv1: __uint8_t,
-    pub __fpu_fop: __uint16_t,
-    pub __fpu_ip: __uint32_t,
-    pub __fpu_cs: __uint16_t,
-    pub __fpu_rsrv2: __uint16_t,
-    pub __fpu_dp: __uint32_t,
-    pub __fpu_ds: __uint16_t,
-    pub __fpu_rsrv3: __uint16_t,
-    pub __fpu_mxcsr: __uint32_t,
-    pub __fpu_mxcsrmask: __uint32_t,
-    pub __fpu_stmm0: __darwin_mmst_reg,
-    pub __fpu_stmm1: __darwin_mmst_reg,
-    pub __fpu_stmm2: __darwin_mmst_reg,
-    pub __fpu_stmm3: __darwin_mmst_reg,
-    pub __fpu_stmm4: __darwin_mmst_reg,
-    pub __fpu_stmm5: __darwin_mmst_reg,
-    pub __fpu_stmm6: __darwin_mmst_reg,
-    pub __fpu_stmm7: __darwin_mmst_reg,
-    pub __fpu_xmm0: __darwin_xmm_reg,
-    pub __fpu_xmm1: __darwin_xmm_reg,
-    pub __fpu_xmm2: __darwin_xmm_reg,
-    pub __fpu_xmm3: __darwin_xmm_reg,
-    pub __fpu_xmm4: __darwin_xmm_reg,
-    pub __fpu_xmm5: __darwin_xmm_reg,
-    pub __fpu_xmm6: __darwin_xmm_reg,
-    pub __fpu_xmm7: __darwin_xmm_reg,
-    pub __fpu_xmm8: __darwin_xmm_reg,
-    pub __fpu_xmm9: __darwin_xmm_reg,
-    pub __fpu_xmm10: __darwin_xmm_reg,
-    pub __fpu_xmm11: __darwin_xmm_reg,
-    pub __fpu_xmm12: __darwin_xmm_reg,
-    pub __fpu_xmm13: __darwin_xmm_reg,
-    pub __fpu_xmm14: __darwin_xmm_reg,
-    pub __fpu_xmm15: __darwin_xmm_reg,
-    pub __fpu_rsrv4: [::std::os::raw::c_char; 96usize],
-    pub __fpu_reserved1: ::std::os::raw::c_int,
+pub struct __darwin_arm_debug_state32 {
+    pub __bvr: [__uint32_t; 16usize],
+    pub __bcr: [__uint32_t; 16usize],
+    pub __wvr: [__uint32_t; 16usize],
+    pub __wcr: [__uint32_t; 16usize],
+    pub __mdscr_el1: __uint64_t,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_x86_avx_state64 {
-    pub __fpu_reserved: [::std::os::raw::c_int; 2usize],
-    pub __fpu_fcw: __darwin_fp_control,
-    pub __fpu_fsw: __darwin_fp_status,
-    pub __fpu_ftw: __uint8_t,
-    pub __fpu_rsrv1: __uint8_t,
-    pub __fpu_fop: __uint16_t,
-    pub __fpu_ip: __uint32_t,
-    pub __fpu_cs: __uint16_t,
-    pub __fpu_rsrv2: __uint16_t,
-    pub __fpu_dp: __uint32_t,
-    pub __fpu_ds: __uint16_t,
-    pub __fpu_rsrv3: __uint16_t,
-    pub __fpu_mxcsr: __uint32_t,
-    pub __fpu_mxcsrmask: __uint32_t,
-    pub __fpu_stmm0: __darwin_mmst_reg,
-    pub __fpu_stmm1: __darwin_mmst_reg,
-    pub __fpu_stmm2: __darwin_mmst_reg,
-    pub __fpu_stmm3: __darwin_mmst_reg,
-    pub __fpu_stmm4: __darwin_mmst_reg,
-    pub __fpu_stmm5: __darwin_mmst_reg,
-    pub __fpu_stmm6: __darwin_mmst_reg,
-    pub __fpu_stmm7: __darwin_mmst_reg,
-    pub __fpu_xmm0: __darwin_xmm_reg,
-    pub __fpu_xmm1: __darwin_xmm_reg,
-    pub __fpu_xmm2: __darwin_xmm_reg,
-    pub __fpu_xmm3: __darwin_xmm_reg,
-    pub __fpu_xmm4: __darwin_xmm_reg,
-    pub __fpu_xmm5: __darwin_xmm_reg,
-    pub __fpu_xmm6: __darwin_xmm_reg,
-    pub __fpu_xmm7: __darwin_xmm_reg,
-    pub __fpu_xmm8: __darwin_xmm_reg,
-    pub __fpu_xmm9: __darwin_xmm_reg,
-    pub __fpu_xmm10: __darwin_xmm_reg,
-    pub __fpu_xmm11: __darwin_xmm_reg,
-    pub __fpu_xmm12: __darwin_xmm_reg,
-    pub __fpu_xmm13: __darwin_xmm_reg,
-    pub __fpu_xmm14: __darwin_xmm_reg,
-    pub __fpu_xmm15: __darwin_xmm_reg,
-    pub __fpu_rsrv4: [::std::os::raw::c_char; 96usize],
-    pub __fpu_reserved1: ::std::os::raw::c_int,
-    pub __avx_reserved1: [::std::os::raw::c_char; 64usize],
-    pub __fpu_ymmh0: __darwin_xmm_reg,
-    pub __fpu_ymmh1: __darwin_xmm_reg,
-    pub __fpu_ymmh2: __darwin_xmm_reg,
-    pub __fpu_ymmh3: __darwin_xmm_reg,
-    pub __fpu_ymmh4: __darwin_xmm_reg,
-    pub __fpu_ymmh5: __darwin_xmm_reg,
-    pub __fpu_ymmh6: __darwin_xmm_reg,
-    pub __fpu_ymmh7: __darwin_xmm_reg,
-    pub __fpu_ymmh8: __darwin_xmm_reg,
-    pub __fpu_ymmh9: __darwin_xmm_reg,
-    pub __fpu_ymmh10: __darwin_xmm_reg,
-    pub __fpu_ymmh11: __darwin_xmm_reg,
-    pub __fpu_ymmh12: __darwin_xmm_reg,
-    pub __fpu_ymmh13: __darwin_xmm_reg,
-    pub __fpu_ymmh14: __darwin_xmm_reg,
-    pub __fpu_ymmh15: __darwin_xmm_reg,
+pub struct __darwin_arm_debug_state64 {
+    pub __bvr: [__uint64_t; 16usize],
+    pub __bcr: [__uint64_t; 16usize],
+    pub __wvr: [__uint64_t; 16usize],
+    pub __wcr: [__uint64_t; 16usize],
+    pub __mdscr_el1: __uint64_t,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __darwin_x86_avx512_state64 {
-    pub __fpu_reserved: [::std::os::raw::c_int; 2usize],
-    pub __fpu_fcw: __darwin_fp_control,
-    pub __fpu_fsw: __darwin_fp_status,
-    pub __fpu_ftw: __uint8_t,
-    pub __fpu_rsrv1: __uint8_t,
-    pub __fpu_fop: __uint16_t,
-    pub __fpu_ip: __uint32_t,
-    pub __fpu_cs: __uint16_t,
-    pub __fpu_rsrv2: __uint16_t,
-    pub __fpu_dp: __uint32_t,
-    pub __fpu_ds: __uint16_t,
-    pub __fpu_rsrv3: __uint16_t,
-    pub __fpu_mxcsr: __uint32_t,
-    pub __fpu_mxcsrmask: __uint32_t,
-    pub __fpu_stmm0: __darwin_mmst_reg,
-    pub __fpu_stmm1: __darwin_mmst_reg,
-    pub __fpu_stmm2: __darwin_mmst_reg,
-    pub __fpu_stmm3: __darwin_mmst_reg,
-    pub __fpu_stmm4: __darwin_mmst_reg,
-    pub __fpu_stmm5: __darwin_mmst_reg,
-    pub __fpu_stmm6: __darwin_mmst_reg,
-    pub __fpu_stmm7: __darwin_mmst_reg,
-    pub __fpu_xmm0: __darwin_xmm_reg,
-    pub __fpu_xmm1: __darwin_xmm_reg,
-    pub __fpu_xmm2: __darwin_xmm_reg,
-    pub __fpu_xmm3: __darwin_xmm_reg,
-    pub __fpu_xmm4: __darwin_xmm_reg,
-    pub __fpu_xmm5: __darwin_xmm_reg,
-    pub __fpu_xmm6: __darwin_xmm_reg,
-    pub __fpu_xmm7: __darwin_xmm_reg,
-    pub __fpu_xmm8: __darwin_xmm_reg,
-    pub __fpu_xmm9: __darwin_xmm_reg,
-    pub __fpu_xmm10: __darwin_xmm_reg,
-    pub __fpu_xmm11: __darwin_xmm_reg,
-    pub __fpu_xmm12: __darwin_xmm_reg,
-    pub __fpu_xmm13: __darwin_xmm_reg,
-    pub __fpu_xmm14: __darwin_xmm_reg,
-    pub __fpu_xmm15: __darwin_xmm_reg,
-    pub __fpu_rsrv4: [::std::os::raw::c_char; 96usize],
-    pub __fpu_reserved1: ::std::os::raw::c_int,
-    pub __avx_reserved1: [::std::os::raw::c_char; 64usize],
-    pub __fpu_ymmh0: __darwin_xmm_reg,
-    pub __fpu_ymmh1: __darwin_xmm_reg,
-    pub __fpu_ymmh2: __darwin_xmm_reg,
-    pub __fpu_ymmh3: __darwin_xmm_reg,
-    pub __fpu_ymmh4: __darwin_xmm_reg,
-    pub __fpu_ymmh5: __darwin_xmm_reg,
-    pub __fpu_ymmh6: __darwin_xmm_reg,
-    pub __fpu_ymmh7: __darwin_xmm_reg,
-    pub __fpu_ymmh8: __darwin_xmm_reg,
-    pub __fpu_ymmh9: __darwin_xmm_reg,
-    pub __fpu_ymmh10: __darwin_xmm_reg,
-    pub __fpu_ymmh11: __darwin_xmm_reg,
-    pub __fpu_ymmh12: __darwin_xmm_reg,
-    pub __fpu_ymmh13: __darwin_xmm_reg,
-    pub __fpu_ymmh14: __darwin_xmm_reg,
-    pub __fpu_ymmh15: __darwin_xmm_reg,
-    pub __fpu_k0: __darwin_opmask_reg,
-    pub __fpu_k1: __darwin_opmask_reg,
-    pub __fpu_k2: __darwin_opmask_reg,
-    pub __fpu_k3: __darwin_opmask_reg,
-    pub __fpu_k4: __darwin_opmask_reg,
-    pub __fpu_k5: __darwin_opmask_reg,
-    pub __fpu_k6: __darwin_opmask_reg,
-    pub __fpu_k7: __darwin_opmask_reg,
-    pub __fpu_zmmh0: __darwin_ymm_reg,
-    pub __fpu_zmmh1: __darwin_ymm_reg,
-    pub __fpu_zmmh2: __darwin_ymm_reg,
-    pub __fpu_zmmh3: __darwin_ymm_reg,
-    pub __fpu_zmmh4: __darwin_ymm_reg,
-    pub __fpu_zmmh5: __darwin_ymm_reg,
-    pub __fpu_zmmh6: __darwin_ymm_reg,
-    pub __fpu_zmmh7: __darwin_ymm_reg,
-    pub __fpu_zmmh8: __darwin_ymm_reg,
-    pub __fpu_zmmh9: __darwin_ymm_reg,
-    pub __fpu_zmmh10: __darwin_ymm_reg,
-    pub __fpu_zmmh11: __darwin_ymm_reg,
-    pub __fpu_zmmh12: __darwin_ymm_reg,
-    pub __fpu_zmmh13: __darwin_ymm_reg,
-    pub __fpu_zmmh14: __darwin_ymm_reg,
-    pub __fpu_zmmh15: __darwin_ymm_reg,
-    pub __fpu_zmm16: __darwin_zmm_reg,
-    pub __fpu_zmm17: __darwin_zmm_reg,
-    pub __fpu_zmm18: __darwin_zmm_reg,
-    pub __fpu_zmm19: __darwin_zmm_reg,
-    pub __fpu_zmm20: __darwin_zmm_reg,
-    pub __fpu_zmm21: __darwin_zmm_reg,
-    pub __fpu_zmm22: __darwin_zmm_reg,
-    pub __fpu_zmm23: __darwin_zmm_reg,
-    pub __fpu_zmm24: __darwin_zmm_reg,
-    pub __fpu_zmm25: __darwin_zmm_reg,
-    pub __fpu_zmm26: __darwin_zmm_reg,
-    pub __fpu_zmm27: __darwin_zmm_reg,
-    pub __fpu_zmm28: __darwin_zmm_reg,
-    pub __fpu_zmm29: __darwin_zmm_reg,
-    pub __fpu_zmm30: __darwin_zmm_reg,
-    pub __fpu_zmm31: __darwin_zmm_reg,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_x86_exception_state64 {
-    pub __trapno: __uint16_t,
-    pub __cpu: __uint16_t,
-    pub __err: __uint32_t,
-    pub __faultvaddr: __uint64_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_x86_debug_state64 {
-    pub __dr0: __uint64_t,
-    pub __dr1: __uint64_t,
-    pub __dr2: __uint64_t,
-    pub __dr3: __uint64_t,
-    pub __dr4: __uint64_t,
-    pub __dr5: __uint64_t,
-    pub __dr6: __uint64_t,
-    pub __dr7: __uint64_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_x86_cpmu_state64 {
+pub struct __darwin_arm_cpmu_state64 {
     pub __ctrs: [__uint64_t; 16usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __darwin_mcontext32 {
-    pub __es: __darwin_i386_exception_state,
-    pub __ss: __darwin_i386_thread_state,
-    pub __fs: __darwin_i386_float_state,
+    pub __es: __darwin_arm_exception_state,
+    pub __ss: __darwin_arm_thread_state,
+    pub __fs: __darwin_arm_vfp_state,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_mcontext_avx32 {
-    pub __es: __darwin_i386_exception_state,
-    pub __ss: __darwin_i386_thread_state,
-    pub __fs: __darwin_i386_avx_state,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_mcontext_avx512_32 {
-    pub __es: __darwin_i386_exception_state,
-    pub __ss: __darwin_i386_thread_state,
-    pub __fs: __darwin_i386_avx512_state,
-}
-#[repr(C)]
+#[repr(align(16))]
 #[derive(Debug, Copy, Clone)]
 pub struct __darwin_mcontext64 {
-    pub __es: __darwin_x86_exception_state64,
-    pub __ss: __darwin_x86_thread_state64,
-    pub __fs: __darwin_x86_float_state64,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_mcontext64_full {
-    pub __es: __darwin_x86_exception_state64,
-    pub __ss: __darwin_x86_thread_full_state64,
-    pub __fs: __darwin_x86_float_state64,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_mcontext_avx64 {
-    pub __es: __darwin_x86_exception_state64,
-    pub __ss: __darwin_x86_thread_state64,
-    pub __fs: __darwin_x86_avx_state64,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_mcontext_avx64_full {
-    pub __es: __darwin_x86_exception_state64,
-    pub __ss: __darwin_x86_thread_full_state64,
-    pub __fs: __darwin_x86_avx_state64,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_mcontext_avx512_64 {
-    pub __es: __darwin_x86_exception_state64,
-    pub __ss: __darwin_x86_thread_state64,
-    pub __fs: __darwin_x86_avx512_state64,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_mcontext_avx512_64_full {
-    pub __es: __darwin_x86_exception_state64,
-    pub __ss: __darwin_x86_thread_full_state64,
-    pub __fs: __darwin_x86_avx512_state64,
+    pub __es: __darwin_arm_exception_state64,
+    pub __ss: __darwin_arm_thread_state64,
+    pub __ns: __darwin_arm_neon_state64,
 }
 pub type mcontext_t = *mut __darwin_mcontext64;
 pub type pthread_attr_t = __darwin_pthread_attr_t;
@@ -3680,7 +2234,12 @@ pub struct rusage_info_v6 {
     pub ri_pcycles: u64,
     pub ri_energy_nj: u64,
     pub ri_penergy_nj: u64,
-    pub ri_reserved: [u64; 14usize],
+    pub ri_secure_time_in_system: u64,
+    pub ri_secure_ptime_in_system: u64,
+    pub ri_neural_footprint: u64,
+    pub ri_lifetime_max_neural_footprint: u64,
+    pub ri_interval_max_neural_footprint: u64,
+    pub ri_reserved: [u64; 9usize],
 }
 pub type rusage_info_current = rusage_info_v6;
 #[repr(C)]
@@ -4064,7 +2623,7 @@ unsafe extern "C" {
     ) -> pid_t;
 }
 unsafe extern "C" {
-    pub fn alloca(arg1: ::std::os::raw::c_ulong) -> *mut ::std::os::raw::c_void;
+    pub fn alloca(__size: ::std::os::raw::c_ulong) -> *mut ::std::os::raw::c_void;
 }
 pub type ct_rune_t = __darwin_ct_rune_t;
 pub type rune_t = __darwin_rune_t;
@@ -4204,7 +2763,13 @@ unsafe extern "C" {
     ) -> *mut ::std::os::raw::c_void;
 }
 unsafe extern "C" {
-    pub fn valloc(arg1: usize) -> *mut ::std::os::raw::c_void;
+    pub fn reallocf(
+        __ptr: *mut ::std::os::raw::c_void,
+        __size: usize,
+    ) -> *mut ::std::os::raw::c_void;
+}
+unsafe extern "C" {
+    pub fn valloc(__size: usize) -> *mut ::std::os::raw::c_void;
 }
 unsafe extern "C" {
     pub fn aligned_alloc(
@@ -4227,6 +2792,11 @@ unsafe extern "C" {
 }
 unsafe extern "C" {
     pub fn atexit(arg1: ::std::option::Option<unsafe extern "C" fn()>) -> ::std::os::raw::c_int;
+}
+unsafe extern "C" {
+    pub fn at_quick_exit(
+        arg1: ::std::option::Option<unsafe extern "C" fn()>,
+    ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
     pub fn atof(arg1: *const ::std::os::raw::c_char) -> f64;
@@ -4279,13 +2849,13 @@ unsafe extern "C" {
     pub fn mblen(__s: *const ::std::os::raw::c_char, __n: usize) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
-    pub fn mbstowcs(arg1: *mut wchar_t, arg2: *const ::std::os::raw::c_char, arg3: usize) -> usize;
+    pub fn mbstowcs(arg1: *mut wchar_t, arg2: *const ::std::os::raw::c_char, __n: usize) -> usize;
 }
 unsafe extern "C" {
     pub fn mbtowc(
         arg1: *mut wchar_t,
         arg2: *const ::std::os::raw::c_char,
-        arg3: usize,
+        __n: usize,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -4300,6 +2870,9 @@ unsafe extern "C" {
             ) -> ::std::os::raw::c_int,
         >,
     );
+}
+unsafe extern "C" {
+    pub fn quick_exit(arg1: ::std::os::raw::c_int) -> !;
 }
 unsafe extern "C" {
     pub fn rand() -> ::std::os::raw::c_int;
@@ -4351,7 +2924,7 @@ unsafe extern "C" {
     pub fn system(arg1: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
-    pub fn wcstombs(arg1: *mut ::std::os::raw::c_char, arg2: *const wchar_t, arg3: usize) -> usize;
+    pub fn wcstombs(arg1: *mut ::std::os::raw::c_char, arg2: *const wchar_t, __n: usize) -> usize;
 }
 unsafe extern "C" {
     pub fn wctomb(arg1: *mut ::std::os::raw::c_char, arg2: wchar_t) -> ::std::os::raw::c_int;
@@ -4405,7 +2978,7 @@ unsafe extern "C" {
     pub fn initstate(
         arg1: ::std::os::raw::c_uint,
         arg2: *mut ::std::os::raw::c_char,
-        arg3: usize,
+        __size: usize,
     ) -> *mut ::std::os::raw::c_char;
 }
 unsafe extern "C" {
@@ -4495,7 +3068,10 @@ unsafe extern "C" {
     pub fn arc4random() -> u32;
 }
 unsafe extern "C" {
-    pub fn arc4random_addrandom(arg1: *mut ::std::os::raw::c_uchar, arg2: ::std::os::raw::c_int);
+    pub fn arc4random_addrandom(
+        arg1: *mut ::std::os::raw::c_uchar,
+        __datlen: ::std::os::raw::c_int,
+    );
 }
 unsafe extern "C" {
     pub fn arc4random_buf(__buf: *mut ::std::os::raw::c_void, __nbytes: usize);
@@ -4578,7 +3154,6 @@ unsafe extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
-    #[link_name = "\u{1}_daemon$1050"]
     pub fn daemon(
         arg1: ::std::os::raw::c_int,
         arg2: ::std::os::raw::c_int,
@@ -4602,7 +3177,7 @@ unsafe extern "C" {
     ) -> *mut ::std::os::raw::c_char;
 }
 unsafe extern "C" {
-    pub fn getloadavg(arg1: *mut f64, arg2: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn getloadavg(arg1: *mut f64, __nelem: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
     pub fn getprogname() -> *const ::std::os::raw::c_char;
@@ -4735,12 +3310,6 @@ unsafe extern "C" {
 }
 unsafe extern "C" {
     pub fn srandomdev();
-}
-unsafe extern "C" {
-    pub fn reallocf(
-        __ptr: *mut ::std::os::raw::c_void,
-        __size: usize,
-    ) -> *mut ::std::os::raw::c_void;
 }
 unsafe extern "C" {
     pub fn strtonum(
@@ -4998,6 +3567,12 @@ unsafe extern "C" {
     ) -> *mut ::std::os::raw::c_char;
 }
 unsafe extern "C" {
+    pub fn strchrnul(
+        __s: *const ::std::os::raw::c_char,
+        __c: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
+}
+unsafe extern "C" {
     pub fn strnstr(
         __big: *const ::std::os::raw::c_char,
         __little: *const ::std::os::raw::c_char,
@@ -5031,7 +3606,7 @@ unsafe extern "C" {
     pub fn swab(
         arg1: *const ::std::os::raw::c_void,
         arg2: *mut ::std::os::raw::c_void,
-        arg3: isize,
+        __len: isize,
     );
 }
 unsafe extern "C" {
@@ -5052,18 +3627,18 @@ unsafe extern "C" {
     pub fn bcmp(
         arg1: *const ::std::os::raw::c_void,
         arg2: *const ::std::os::raw::c_void,
-        arg3: ::std::os::raw::c_ulong,
+        __n: ::std::os::raw::c_ulong,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
     pub fn bcopy(
         arg1: *const ::std::os::raw::c_void,
         arg2: *mut ::std::os::raw::c_void,
-        arg3: usize,
+        __n: ::std::os::raw::c_ulong,
     );
 }
 unsafe extern "C" {
-    pub fn bzero(arg1: *mut ::std::os::raw::c_void, arg2: ::std::os::raw::c_ulong);
+    pub fn bzero(arg1: *mut ::std::os::raw::c_void, __n: ::std::os::raw::c_ulong);
 }
 unsafe extern "C" {
     pub fn index(
@@ -5108,8 +3683,8 @@ unsafe extern "C" {
 unsafe extern "C" {
     pub fn flsll(arg1: ::std::os::raw::c_longlong) -> ::std::os::raw::c_int;
 }
-pub type va_list = __builtin_va_list;
 pub type __gnuc_va_list = __builtin_va_list;
+pub type va_list = __builtin_va_list;
 unsafe extern "C" {
     pub fn renameat(
         arg1: ::std::os::raw::c_int,
@@ -5133,6 +3708,9 @@ unsafe extern "C" {
         arg4: *const ::std::os::raw::c_char,
         arg5: ::std::os::raw::c_uint,
     ) -> ::std::os::raw::c_int;
+}
+unsafe extern "C" {
+    pub fn printf(arg1: *const ::std::os::raw::c_char, ...) -> ::std::os::raw::c_int;
 }
 pub type fpos_t = __darwin_off_t;
 #[repr(C)]
@@ -5164,7 +3742,7 @@ pub struct __sFILE {
         unsafe extern "C" fn(
             arg1: *mut ::std::os::raw::c_void,
             arg2: *mut ::std::os::raw::c_char,
-            arg3: ::std::os::raw::c_int,
+            __n: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_int,
     >,
     pub _seek: ::std::option::Option<
@@ -5178,7 +3756,7 @@ pub struct __sFILE {
         unsafe extern "C" fn(
             arg1: *mut ::std::os::raw::c_void,
             arg2: *const ::std::os::raw::c_char,
-            arg3: ::std::os::raw::c_int,
+            __n: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_int,
     >,
     pub _ub: __sbuf,
@@ -5224,8 +3802,8 @@ unsafe extern "C" {
 unsafe extern "C" {
     pub fn fgets(
         arg1: *mut ::std::os::raw::c_char,
-        arg2: ::std::os::raw::c_int,
-        arg3: *mut FILE,
+        __size: ::std::os::raw::c_int,
+        arg2: *mut FILE,
     ) -> *mut ::std::os::raw::c_char;
 }
 unsafe extern "C" {
@@ -5303,9 +3881,6 @@ unsafe extern "C" {
     pub fn perror(arg1: *const ::std::os::raw::c_char);
 }
 unsafe extern "C" {
-    pub fn printf(arg1: *const ::std::os::raw::c_char, ...) -> ::std::os::raw::c_int;
-}
-unsafe extern "C" {
     pub fn putc(arg1: ::std::os::raw::c_int, arg2: *mut FILE) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -5337,7 +3912,7 @@ unsafe extern "C" {
         arg1: *mut FILE,
         arg2: *mut ::std::os::raw::c_char,
         arg3: ::std::os::raw::c_int,
-        arg4: usize,
+        __size: usize,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -5367,20 +3942,20 @@ unsafe extern "C" {
     pub fn vfprintf(
         arg1: *mut FILE,
         arg2: *const ::std::os::raw::c_char,
-        arg3: *mut __va_list_tag,
+        arg3: __builtin_va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
     pub fn vprintf(
         arg1: *const ::std::os::raw::c_char,
-        arg2: *mut __va_list_tag,
+        arg2: __builtin_va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
     pub fn vsprintf(
         arg1: *mut ::std::os::raw::c_char,
         arg2: *const ::std::os::raw::c_char,
-        arg3: *mut __va_list_tag,
+        arg3: __builtin_va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -5408,7 +3983,7 @@ unsafe extern "C" {
     pub fn __svfscanf(
         arg1: *mut FILE,
         arg2: *const ::std::os::raw::c_char,
-        arg3: *mut __va_list_tag,
+        arg3: va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -5470,13 +4045,13 @@ unsafe extern "C" {
     pub fn vfscanf(
         __stream: *mut FILE,
         __format: *const ::std::os::raw::c_char,
-        arg1: *mut __va_list_tag,
+        arg1: __builtin_va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
     pub fn vscanf(
         __format: *const ::std::os::raw::c_char,
-        arg1: *mut __va_list_tag,
+        arg1: __builtin_va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -5484,14 +4059,14 @@ unsafe extern "C" {
         __str: *mut ::std::os::raw::c_char,
         __size: ::std::os::raw::c_ulong,
         __format: *const ::std::os::raw::c_char,
-        arg1: *mut __va_list_tag,
+        arg1: __builtin_va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
     pub fn vsscanf(
         __str: *const ::std::os::raw::c_char,
         __format: *const ::std::os::raw::c_char,
-        arg1: *mut __va_list_tag,
+        arg1: __builtin_va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -5505,7 +4080,7 @@ unsafe extern "C" {
     pub fn vdprintf(
         arg1: ::std::os::raw::c_int,
         arg2: *const ::std::os::raw::c_char,
-        arg3: *mut __va_list_tag,
+        arg3: va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -5553,7 +4128,7 @@ unsafe extern "C" {
     pub fn ctermid_r(arg1: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
 }
 unsafe extern "C" {
-    pub fn fgetln(arg1: *mut FILE, arg2: *mut usize) -> *mut ::std::os::raw::c_char;
+    pub fn fgetln(arg1: *mut FILE, __len: *mut usize) -> *mut ::std::os::raw::c_char;
 }
 unsafe extern "C" {
     pub fn fmtcheck(
@@ -5568,7 +4143,7 @@ unsafe extern "C" {
     pub fn setbuffer(
         arg1: *mut FILE,
         arg2: *mut ::std::os::raw::c_char,
-        arg3: ::std::os::raw::c_int,
+        __size: ::std::os::raw::c_int,
     );
 }
 unsafe extern "C" {
@@ -5578,7 +4153,7 @@ unsafe extern "C" {
     pub fn vasprintf(
         arg1: *mut *mut ::std::os::raw::c_char,
         arg2: *const ::std::os::raw::c_char,
-        arg3: *mut __va_list_tag,
+        arg3: va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -5588,14 +4163,14 @@ unsafe extern "C" {
             unsafe extern "C" fn(
                 arg1: *mut ::std::os::raw::c_void,
                 arg2: *mut ::std::os::raw::c_char,
-                arg3: ::std::os::raw::c_int,
+                __n: ::std::os::raw::c_int,
             ) -> ::std::os::raw::c_int,
         >,
         arg3: ::std::option::Option<
             unsafe extern "C" fn(
                 arg1: *mut ::std::os::raw::c_void,
                 arg2: *const ::std::os::raw::c_char,
-                arg3: ::std::os::raw::c_int,
+                __n: ::std::os::raw::c_int,
             ) -> ::std::os::raw::c_int,
         >,
         arg4: ::std::option::Option<
@@ -5611,6 +4186,26 @@ unsafe extern "C" {
     ) -> *mut FILE;
 }
 unsafe extern "C" {
+    pub fn __snprintf_chk(
+        arg1: *mut ::std::os::raw::c_char,
+        __maxlen: usize,
+        arg2: ::std::os::raw::c_int,
+        arg3: usize,
+        arg4: *const ::std::os::raw::c_char,
+        ...
+    ) -> ::std::os::raw::c_int;
+}
+unsafe extern "C" {
+    pub fn __vsnprintf_chk(
+        arg1: *mut ::std::os::raw::c_char,
+        __maxlen: usize,
+        arg2: ::std::os::raw::c_int,
+        arg3: usize,
+        arg4: *const ::std::os::raw::c_char,
+        arg5: va_list,
+    ) -> ::std::os::raw::c_int;
+}
+unsafe extern "C" {
     pub fn __sprintf_chk(
         arg1: *mut ::std::os::raw::c_char,
         arg2: ::std::os::raw::c_int,
@@ -5620,32 +4215,12 @@ unsafe extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
-    pub fn __snprintf_chk(
-        arg1: *mut ::std::os::raw::c_char,
-        arg2: usize,
-        arg3: ::std::os::raw::c_int,
-        arg4: usize,
-        arg5: *const ::std::os::raw::c_char,
-        ...
-    ) -> ::std::os::raw::c_int;
-}
-unsafe extern "C" {
     pub fn __vsprintf_chk(
         arg1: *mut ::std::os::raw::c_char,
         arg2: ::std::os::raw::c_int,
         arg3: usize,
         arg4: *const ::std::os::raw::c_char,
-        arg5: *mut __va_list_tag,
-    ) -> ::std::os::raw::c_int;
-}
-unsafe extern "C" {
-    pub fn __vsnprintf_chk(
-        arg1: *mut ::std::os::raw::c_char,
-        arg2: usize,
-        arg3: ::std::os::raw::c_int,
-        arg4: usize,
-        arg5: *const ::std::os::raw::c_char,
-        arg6: *mut __va_list_tag,
+        arg5: va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -5721,7 +4296,7 @@ unsafe extern "C" {
     pub fn kvsprintf(
         s: *mut kstring_t,
         fmt: *const ::std::os::raw::c_char,
-        ap: *mut __va_list_tag,
+        ap: va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -6216,6 +4791,8 @@ pub const hts_fmt_option_FASTQ_OPT_AUX: hts_fmt_option = 1001;
 pub const hts_fmt_option_FASTQ_OPT_RNUM: hts_fmt_option = 1002;
 pub const hts_fmt_option_FASTQ_OPT_BARCODE: hts_fmt_option = 1003;
 pub const hts_fmt_option_FASTQ_OPT_NAME2: hts_fmt_option = 1004;
+pub const hts_fmt_option_FASTQ_OPT_UMI: hts_fmt_option = 1005;
+pub const hts_fmt_option_FASTQ_OPT_UMI_REGEX: hts_fmt_option = 1006;
 pub type hts_fmt_option = ::std::os::raw::c_uint;
 pub const hts_profile_option_HTS_PROFILE_FAST: hts_profile_option = 0;
 pub const hts_profile_option_HTS_PROFILE_NORMAL: hts_profile_option = 1;
@@ -6989,9 +5566,9 @@ unsafe extern "C" {
 unsafe extern "C" {
     pub fn hts_md5_destroy(ctx: *mut hts_md5_context);
 }
-pub type uint16_u = u16;
-pub type uint32_u = u32;
-pub type uint64_u = u64;
+unsafe extern "C" {
+    pub fn hts_crc32(crc: u32, buf: *const ::std::os::raw::c_void, len: usize) -> u32;
+}
 unsafe extern "C" {
     pub fn __assert_rtn(
         arg1: *const ::std::os::raw::c_char,
@@ -7968,6 +6545,14 @@ unsafe extern "C" {
 }
 unsafe extern "C" {
     pub static mut bcf_float_missing: u32;
+}
+unsafe extern "C" {
+    pub fn bcf_format_gt_v2(
+        hdr: *const bcf_hdr_t,
+        fmt: *mut bcf_fmt_t,
+        isample: ::std::os::raw::c_int,
+        str_: *mut kstring_t,
+    ) -> ::std::os::raw::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -9037,6 +7622,16 @@ unsafe extern "C" {
         ntype: *mut ::std::os::raw::c_int,
     ) -> *mut ::std::os::raw::c_int;
 }
+unsafe extern "C" {
+    pub fn sam_hdr_set(
+        fp: *mut samFile,
+        h: *mut sam_hdr_t,
+        dup: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+unsafe extern "C" {
+    pub fn sam_hdr_get(fp: *mut samFile) -> *mut sam_hdr_t;
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct hFILE_backend {
@@ -9431,6 +8026,14 @@ unsafe extern "C" {
     pub fn cram_container_is_empty(fd: *mut cram_fd) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
+    pub fn cram_container_get_coords(
+        c: *mut cram_container,
+        refid: *mut ::std::os::raw::c_int,
+        start: *mut hts_pos_t,
+        span: *mut hts_pos_t,
+    );
+}
+unsafe extern "C" {
     pub fn cram_block_get_content_id(b: *mut cram_block) -> i32;
 }
 unsafe extern "C" {
@@ -9513,6 +8116,14 @@ unsafe extern "C" {
         in_: *mut cram_fd,
         out: *mut cram_fd,
         num_slice: i32,
+    ) -> ::std::os::raw::c_int;
+}
+unsafe extern "C" {
+    pub fn cram_filter_container(
+        in_: *mut cram_fd,
+        out: *mut cram_fd,
+        c: *mut cram_container,
+        ref_id: *mut ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -9673,7 +8284,7 @@ unsafe extern "C" {
     pub fn cram_set_voption(
         fd: *mut cram_fd,
         opt: hts_fmt_option,
-        args: *mut __va_list_tag,
+        args: va_list,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -9688,6 +8299,34 @@ unsafe extern "C" {
 pub type SAM_hdr = sam_hdr_t;
 unsafe extern "C" {
     pub fn cram_get_refs(fd: *mut htsFile) -> *mut refs_t;
+}
+unsafe extern "C" {
+    pub fn cram_index_extents(
+        fd: *mut cram_fd,
+        refid: ::std::os::raw::c_int,
+        start: hts_pos_t,
+        end: hts_pos_t,
+        first: *mut off_t,
+        last: *mut off_t,
+    ) -> ::std::os::raw::c_int;
+}
+unsafe extern "C" {
+    pub fn cram_num_containers(fd: *mut cram_fd) -> i64;
+}
+unsafe extern "C" {
+    pub fn cram_num_containers_between(
+        fd: *mut cram_fd,
+        cstart: off_t,
+        cend: off_t,
+        first: *mut i64,
+        last: *mut i64,
+    ) -> i64;
+}
+unsafe extern "C" {
+    pub fn cram_container_num2offset(fd: *mut cram_fd, n: i64) -> off_t;
+}
+unsafe extern "C" {
+    pub fn cram_container_offset2num(fd: *mut cram_fd, pos: off_t) -> i64;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -10285,6 +8924,9 @@ unsafe extern "C" {
     pub static tbx_conf_vcf: tbx_conf_t;
 }
 unsafe extern "C" {
+    pub static tbx_conf_gaf: tbx_conf_t;
+}
+unsafe extern "C" {
     pub fn tbx_name2id(tbx: *mut tbx_t, ss: *const ::std::os::raw::c_char)
         -> ::std::os::raw::c_int;
 }
@@ -10477,6 +9119,14 @@ unsafe extern "C" {
     pub fn bcf_sr_add_reader(
         readers: *mut bcf_srs_t,
         fname: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+unsafe extern "C" {
+    pub fn bcf_sr_add_hreader(
+        readers: *mut bcf_srs_t,
+        file_ptr: *mut htsFile,
+        autoclose: ::std::os::raw::c_int,
+        idxname: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
@@ -10752,6 +9402,9 @@ unsafe extern "C" {
     pub fn hts_tpool_size(p: *mut hts_tpool) -> ::std::os::raw::c_int;
 }
 unsafe extern "C" {
+    pub fn hts_tpool_worker_id(pool: *mut hts_tpool) -> ::std::os::raw::c_int;
+}
+unsafe extern "C" {
     pub fn hts_tpool_dispatch(
         p: *mut hts_tpool,
         q: *mut hts_tpool_process,
@@ -10873,12 +9526,5 @@ unsafe extern "C" {
     #[link_name = "\u{1}_wrap_kbs_destroy"]
     pub fn kbs_destroy(bs: *mut kbitset_t);
 }
-pub type __builtin_va_list = [__va_list_tag; 1usize];
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __va_list_tag {
-    pub gp_offset: ::std::os::raw::c_uint,
-    pub fp_offset: ::std::os::raw::c_uint,
-    pub overflow_arg_area: *mut ::std::os::raw::c_void,
-    pub reg_save_area: *mut ::std::os::raw::c_void,
-}
+pub type __builtin_va_list = *mut ::std::os::raw::c_char;
+pub type __uint128_t = u128;
