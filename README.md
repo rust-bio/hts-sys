@@ -4,6 +4,13 @@ This sub-crate provides the raw HTSlib bindings, which are used for the high lev
 
 See [rust-htslib](https://github.com/rust-bio/rust-htslib) for details.
 
+## Cloning
+When cloning this repo and updating the binaries, the `htslib` submodule needs to be cloned recursively:
+
+```
+git clone --recurse-submodules ...
+```
+
 ## Updating prebuilt bindings
 
 When updating the htslib submodule or modifying `wrapper.h`, the prebuilt binding files need to be regenerated.
