@@ -3,7 +3,7 @@
 // This file may not be copied, modified, or distributed
 // except according to those terms.
 
-#[cfg(feature = "serde")]
+#[cfg(feature = "bindgen")]
 use bindgen;
 use fs_utils::copy::copy_directory;
 use glob::glob;
@@ -34,6 +34,7 @@ const FILES: &[&str] = &[
     "region.c",
     "sam.c",
     "sam_mods.c",
+    "simd.c",
     "synced_bcf_reader.c",
     "vcf_sweep.c",
     "tbx.c",
@@ -95,12 +96,11 @@ fn main() {
 
     cfg.include(out.join("htslib"));
 
-    let want_static = cfg!(feature = "static") || env::var("HTS_STATIC").is_ok();
-
-    if want_static {
-        cfg.warnings(false).static_flag(true).pic(true);
-    } else {
-        cfg.warnings(false).static_flag(false).pic(true);
+    if cfg!(feature = "static") {
+        // this is the default as of 2.3.0, we just keep the feature for backwards compatibility
+        println!(
+            "cargo:warning=The `static` feature is deprecated and is now the default behavior."
+        );
     }
 
     if let Ok(z_inc) = env::var("DEP_Z_INCLUDE") {
@@ -183,8 +183,6 @@ fn main() {
         config_lines.push("#define ENABLE_S3 1");
         cfg.file("htslib/hfile_s3.c");
         println!("cargo:rerun-if-changed=htslib/hfile_s3.c");
-        cfg.file("htslib/hfile_s3_write.c");
-        println!("cargo:rerun-if-changed=htslib/hfile_s3_write.c");
     }
 
     // pass through target-feature flags to enable special instruction
@@ -261,6 +259,7 @@ fn main() {
     }
 
     cfg.file("wrapper.c");
+    cfg.cargo_warnings(false);
     cfg.compile("hts");
 
     // If bindgen is enabled, use it
@@ -269,6 +268,8 @@ fn main() {
         bindgen::Builder::default()
             .header("wrapper.h")
             .layout_tests(false)
+            .rust_target(bindgen::RustTarget::stable(56, 0).unwrap())
+            .rust_edition(bindgen::RustEdition::Edition2021)
             .generate_comments(false)
             .blocklist_function("strtold")
             .blocklist_type("max_align_t")
