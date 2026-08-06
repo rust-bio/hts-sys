@@ -11,6 +11,8 @@
 #include "htslib/htslib/faidx.h"
 #include "htslib/htslib/thread_pool.h"
 
+#include <stdint.h>
+
 // The following functions have to be wrapped here because they are inline in htslib.
 
 /**
@@ -34,3 +36,9 @@ void wrap_kbs_insert(kbitset_t *bs, int i);
  * <div rustbindgen replaces="kbs_destroy"></div>
  */
 void wrap_kbs_destroy(kbitset_t *bs);
+
+
+/**
+ * <div rustbindgen replaces="bgzf_tell"></div>
+ */
+int64_t wrap_bgzf_tell(BGZF *fp);
